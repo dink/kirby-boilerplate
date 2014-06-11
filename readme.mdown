@@ -1,0 +1,25 @@
+# kirbycms + inuitcss boilerplate
+
+This is the kirbycms + inuitcss boilerplate for madergrafisch; the wrapper for the popular
+[kirby](http://getkirby.com/) cms and [inuit.css](https://github.com/csswizardry/inuit.css) framework.
+
+To quickly install this boilerplate, run the following commands:
+
+    $ git clone --recursive git@github.com:seehat/kirbycms-boilerplate.git your-project-folder
+    $ cd your-project-folder
+    $ ./go
+
+What we are doing here is cloning an instance of the web-template and
+its submodules (that’s what the `--recursive` does) into a directory which you
+specify. Next we `cd` into that directory and run [our `go` script](https://github.com/seehat/kirbycms-boilerplate/blob/master/go).
+This script (courtesy of [Nick Payne](http://twitter.com/makeusabrew)) simply
+removes the web template’s Git instance and replaces it with a fresh one for
+your project, whilst also maintaining the scss submodule.
+
+For a more detailed overview on what kirbycms is, and how to install and use
+it, please refer to the documentation in the README in
+[the main kirbycms repository](https://github.com/bastianallgeier/kirbycms/).
+
+## Important
+
+Though Kirby's source code is available on Github: <http://github.com/bastianallgeier/kirbycms>, you must purchase a license per website. Please go to <http://getkirby.com/buy> for more information.
