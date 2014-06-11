@@ -1,0 +1,45 @@
+
+.filter {
+  margin-bottom: $inuit-base-spacing-unit * 2;
+
+  label {
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+    padding-left: 28px;
+  }
+
+  input {
+    @include vendor(appearance, none);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #777;
+    cursor: pointer;
+    overflow: hidden;
+    outline: 0;
+
+    position: absolute;
+    left: 0;
+    top: -1px;
+    
+    // @include vendor(border-radius, 3px);
+  }
+
+  li input:checked {
+    background: $brand-color;
+    border-color: $brand-color;
+  }
+
+  li {
+    margin-left: 0;
+  }
+
+  ul li:before {
+    display: none;
+  }
+
+  .layout {
+    margin-left: -$inuit-base-spacing-unit;
+  }
+}

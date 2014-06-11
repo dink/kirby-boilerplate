@@ -1,0 +1,116 @@
+
+
+.timeline__block {
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+  text-align: left;
+  border-bottom: 10px solid #eee;
+  position: relative;
+
+  .timeline__content {
+    margin-top: 24px;
+  }
+
+  .timeline__block__icon {
+    color: #aaa;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+  }
+
+  &.dropdown--open {
+    .timeline__block__icon:before {
+      content: "\f106";
+    }
+  }
+
+  em {
+    margin-top: $inuit-base-spacing-unit/2;
+    display: block;
+  }
+
+  ul {
+    margin-left: -20px;
+    margin-right: -20px;
+    list-style-type: none;
+
+    li {
+      border-top: 1px solid #eee;
+      padding: 5px 20px;
+
+      &:last-child {
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      li:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+
+
+@include media-query(desk){
+
+  .timeline {
+    width: 900px;
+    margin: 40px auto;
+    position: relative;
+
+    &:after {
+      content: "";
+      height: 100%;
+      width: 5px;
+      background-color: white;
+      position: absolute;
+      left: 450px;
+      top: 0;
+    }
+  }
+
+  .timeline__block {
+    width: 400px;
+    margin-left: 480px;
+
+    .timeline__block__date {
+      position: absolute;
+      display: block;
+      width: 200px;
+      left: -260px; 
+      text-align: right;
+
+      font-size: 16px;
+      @include vendor(text-shadow, 1px 1px #fff);
+    }
+
+    &.dropdown {
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ddd;;
+      }
+    }
+
+    &:after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      @include vendor (border-radius, 10px);
+      border: 4px solid #eee;
+      background-color: white;
+      display: block;
+      position: absolute;
+      top: 22px;
+      left: -38px;
+      z-index: 100;
+    }
+
+  }
+
+}

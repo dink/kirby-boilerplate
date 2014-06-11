@@ -31,3 +31,6 @@ make Kirby work. For more fine-grained configuration
 of the system, please check out http://getkirby.com/docs
 
 */
+
+error_reporting(E_ALL); 
+ini_set('display_errors', 1); 

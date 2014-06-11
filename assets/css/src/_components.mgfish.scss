@@ -1,0 +1,14 @@
+.mg__fish {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: middle;
+  line-height: 20px;
+  height: 20px;
+  opacity: .7;
+
+  @include vendor(transition, all .3s);
+
+  &:hover {
+    opacity: 1;
+  }
+}

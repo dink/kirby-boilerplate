@@ -12,13 +12,14 @@ var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 
 var paths = {
-  styles: 'assets/scss/*.scss',
-  scripts: ['assets/bower_components/mg-*/*.js', 'assets/js/*.js', '!assets/js/all.min.js'],
-  images: 'assets/images/src/**/*'
+  scss: 'assets/css/src/*.scss',
+  scripts: ['bower_components/mg-*/*.js', 'assets/js/src/*.js', '!assets/js/all.min.js'],
+  images: 'assets/images/src/**/*',
+  css: ['bower_components/leaflet/dist/leaflet.css', 'bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css']
 };
 
 gulp.task('sass', function () {
-    gulp.src(paths.styles)
+  return gulp.src(paths.scss)
       .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
       .pipe(sass())
       .pipe(gulp.dest('./assets/css'));
@@ -48,7 +49,11 @@ gulp.task('watch', function() {
   gulp.run('scripts');
   gulp.run('images');
 
-  gulp.watch(paths.styles, ['sass']);
+  // copy css files to location, that gets commited
+  gulp.src(paths.css)
+      .pipe(gulp.dest('./assets/css'));
+
+  gulp.watch(paths.scss, ['sass']);
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.images, ['images']);
 

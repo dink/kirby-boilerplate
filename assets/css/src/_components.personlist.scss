@@ -1,0 +1,49 @@
+
+.personlist {
+  .media__img {
+    width: 150px;
+  }
+
+  .media__body {
+    background-color: #eee;
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+
+    td, th {
+      padding: 5px 0 5px 0px; 
+      border-bottom: 1px solid #ddd;
+    }
+
+  }
+}
+
+.personlist__item {
+  margin-bottom: $inuit-base-spacing-unit;
+}
+
+.personlist__name {
+  font-weight: 400;
+}
+
+.personlist__position {
+  display: block;
+  margin-top: -10px;
+  font-size: 18px;
+  font-style: italic;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  color: #444;
+}
+
+@include media-query(palm) {
+
+  .personlist {
+    .media__img {
+      width: 100%;
+      float: none;
+    }
+  }  
+
+}
