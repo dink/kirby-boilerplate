@@ -23,3 +23,9 @@
 
 </head>
   <body>
+
+    <nav class="mobile-nav-container toggle-target">
+      <?php snippet('nav-mobile') ?>
+    </nav>
+
+    <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>

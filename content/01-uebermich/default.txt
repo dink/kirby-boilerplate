@@ -1,0 +1,8 @@
+Title: Über mich
+----
+Featured: 
+
+# Cornelia Wilhelm
+
+(format: zentriert text: geboren 1983 in Wien, 2 Kinder)
+
