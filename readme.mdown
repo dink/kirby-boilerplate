@@ -42,7 +42,7 @@ Though Kirby's source code is available on Github: <http://github.com/bastianall
 
 ## Updating Submodules
 
-    $ git submodule update --init --recursive
+    $ git submodule update --init --recursive --remote
 
 ## Further Reading
 
