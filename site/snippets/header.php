@@ -26,4 +26,10 @@
       <?php snippet('nav-mobile') ?>
     </nav>
 
-    <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
+    <div class="header">
+      <div class="limiter">
+        <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
+
+        <h1>Title</h1>
+      </div>
+    </div>

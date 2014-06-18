@@ -1,46 +1,4 @@
 
-.header--wrapper {
-  height: 177px;
-  position: relative;
-}
-
 .header {
-  width: 100%;
-  background-position: top center;
-  background-repeat: no-repeat;
-
-  position: absolute;
-  top:0;
-  z-index: 10;
-}
-
-.header--desktop {
-  height: 76px;
-  background-image: url('/assets/images/nav-bg-mobile.png');
-}
-
-  .header__logo_dummy {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100px;
-    height: 90px;
-    margin-left: -50px;
-    text-indent: -999px;
-    overflow: hidden;
-  }
-
-
-@include media-query(lap-and-up) {
-  .header--desktop {
-    height: 177px;
-    background-image: url('/assets/images/nav-bg-desktop.png');
-  }
-
-  .header__logo_dummy {
-    width: 200px;
-    height: 180px;
-    margin-left: -100px;
-  }
+  position: relative;
 }

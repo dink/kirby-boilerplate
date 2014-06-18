@@ -1,87 +1,9 @@
 .footer {
-  background-color: $lila-light;
   
-  font-weight: 300;
-  
-
-  h1 {
-    font-size: 16px;
-    color: white;
-    font-weight: 300;
-  }
-
-  a {
-    color: rgba(white, .5);
-
-    &:hover {
-      color: white;
-      text-decoration: none;
-    }
-  }
-
-  p {
-    display: inline;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-  }
-
-  .layout__item {
-    margin: $inuit-base-spacing-unit/2 0;
-  }
-}
-
-.footer__contact {
-  color: white;
-  font-size: 18px;
-  text-align: center;
-  border-bottom: 1px solid white;
-
-  a {
-    color: white;
-  }
-}
-
-.footer__main {
-  color: rgba(white, .5);
-  font-size: 14px;
-  line-height: 1.5em;
-  text-align: center;
-
-  padding: $inuit-base-spacing-unit 0;
-}
-
-.footer_subline {
-  color: rgba(white, .5);
-  font-size: 14px;
-  line-height: 1.5em;
-  text-align: center;
-
-  padding: $inuit-base-spacing-unit/2 0;
-  background-color: $brand-color;
-}
-
-.mg__fish {
-  display: inline-block;
-  margin-left: 3px;
-  vertical-align: middle;
-  line-height: 20px;
-  height: 20px;
-  opacity: .7;
-
-  @include vendor(transition, all .3s);
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 @include media-query (desk) {
-  .footer__main {
-    text-align: left;
-  }
+
 }
 
 @include media-query (palm) {
