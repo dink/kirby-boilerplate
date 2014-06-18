@@ -1968,8 +1968,7 @@ img[height] {
 body {
   font-family: "Open Sans", sans-serif;
   color: #666666;
-  overflow: hidden;
-  background-color: red; }
+  overflow: hidden; }
 
 .content, .content__featured {
   padding: 20px 0; }
