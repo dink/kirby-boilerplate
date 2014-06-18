@@ -23,3 +23,15 @@ it, please refer to the documentation in the README in
 ## Important
 
 Though Kirby's source code is available on Github: <http://github.com/bastianallgeier/kirbycms>, you must purchase a license per website. Please go to <http://getkirby.com/buy> for more information.
+
+## Updating Submodules
+
+    $ git submodule update --init --recursive
+
+## Getting started
+
+### BrowserSync Support
+
+Add your local development domain to your `gulpfile.js` to enable browsersync-support:
+
+    $ global.devDomain = "domain.dev";

@@ -33,7 +33,6 @@
     "inuit-bare-list": "~0.1.2",
     "inuit-ui-list": "~0.1.2",
     "inuit-block-list": "~0.1.2",
-    "jquery": "~2.1.0",
     "fontawesome": "~4.0.3",
     "mg-buttons": "git@github.com:madergrafisch/mg-buttons.git",
     "mg-nav": "git@github.com:madergrafisch/mg-nav.git",

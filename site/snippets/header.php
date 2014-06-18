@@ -17,9 +17,7 @@
 
   <?php echo css('assets/css/site.css') ?>
 
-  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-  <?php echo js('assets/js/all.min.js') ?>
+  <?php echo js('assets/js/site.js') ?>
 
 </head>
   <body>
