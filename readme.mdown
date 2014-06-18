@@ -5,16 +5,32 @@ This is the kirbycms + inuitcss boilerplate for madergrafisch; the wrapper for t
 
 To quickly install this boilerplate, run the following commands:
 
-    $ git clone --recursive git@github.com:seehat/kirbycms-boilerplate.git your-project-folder
+    $ git clone --recursive git@github.com:madergrafisch/kirby-boilerplate.git your-project-folder
     $ cd your-project-folder
     $ ./go
 
 What we are doing here is cloning an instance of the web-template and
 its submodules (that’s what the `--recursive` does) into a directory which you
-specify. Next we `cd` into that directory and run [our `go` script](https://github.com/seehat/kirbycms-boilerplate/blob/master/go).
+specify. Next we `cd` into that directory and run [our `go` script](https://github.com/madergrafisch/kirby-boilerplate/blob/master/go).
 This script (courtesy of [Nick Payne](http://twitter.com/makeusabrew)) simply
 removes the web template’s Git instance and replaces it with a fresh one for
 your project, whilst also maintaining the scss submodule.
+
+Afterwards we are installing required node_modules and bower_components.
+
+## BrowserSync Support
+
+Add your local development domain to your `gulpfile.js` to enable browsersync-support:
+
+    $ global.devDomain = "domain.dev";
+
+## Gulp
+
+Start preprocessors and browsersync and get to work:
+
+    $ gulp
+
+## Kirby
 
 For a more detailed overview on what kirbycms is, and how to install and use
 it, please refer to the documentation in the README in
@@ -27,11 +43,3 @@ Though Kirby's source code is available on Github: <http://github.com/bastianall
 ## Updating Submodules
 
     $ git submodule update --init --recursive
-
-## Getting started
-
-### BrowserSync Support
-
-Add your local development domain to your `gulpfile.js` to enable browsersync-support:
-
-    $ global.devDomain = "domain.dev";
