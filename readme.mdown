@@ -43,3 +43,8 @@ Though Kirby's source code is available on Github: <http://github.com/bastianall
 ## Updating Submodules
 
     $ git submodule update --init --recursive
+
+## Further Reading
+
+- http://viget.com/extend/gulp-browserify-starter-faq
+- http://nodejs.org/api/modules.html#modules_file_modules
