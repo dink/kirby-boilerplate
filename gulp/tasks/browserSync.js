@@ -3,6 +3,8 @@ var gulp        = require('gulp');
 
 gulp.task('browserSync', ['build'], function() {
 	browserSync.init(null, {
-		proxy: global.devDomain
+		proxy: global.devDomain,
+    open: false,
+    notify: false
 	});
 });
