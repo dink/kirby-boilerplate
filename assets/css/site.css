@@ -1983,6 +1983,13 @@ body {
     background-color: #68135a;
     color: white; }
 
+.browsehappy {
+  margin-top: 0;
+  margin-bottom: 1em;
+  background: #ccc;
+  color: #000;
+  padding: 1em; }
+
 a {
   color: #931b80;
   -webkit-transition: color 0.3s;

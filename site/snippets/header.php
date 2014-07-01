@@ -22,6 +22,10 @@
 </head>
   <body>
 
+  <!--[if lt IE 9]>
+    <p class="browsehappy">Sie verwenden einen <strong>veralteten</strong> Browser. Bitte <a href="http://www.whatbrowser.org/intl/de/" target="_blank">aktualisieren Sie Ihren Browser</a> um diese Website am besten darstellen zu können.</p>
+  <![endif]-->
+
     <nav class="mobile-nav-container toggle-target">
       <?php snippet('nav-mobile') ?>
     </nav>
