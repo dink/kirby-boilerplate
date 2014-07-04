@@ -32,5 +32,7 @@ of the system, please check out http://getkirby.com/docs
 
 */
 
+c::set('cache.ignore', array('sitemap'));
+
 error_reporting(E_ALL); 
 ini_set('display_errors', 1); 
