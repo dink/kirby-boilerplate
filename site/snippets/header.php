@@ -10,11 +10,30 @@
   <meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
   <meta name="robots" content="index, follow" />
 
+  <!-- Icons -->
+  <!-- http://realfavicongenerator.net/ -->
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#9f00a7">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
+
+  <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' rel='stylesheet' type='text/css'>
 
-  <?php echo css('assets/css/leaflet.css') ?>
-  <?php echo css('assets/css/leaflet.awesome-markers.css') ?>
-
+  <?php echo css('assets/css/libs.css') ?>
   <?php echo css('assets/css/site.css') ?>
 
   <?php echo js('assets/js/site.js') ?>
@@ -26,14 +45,14 @@
     <p class="browsehappy">Sie verwenden einen <strong>veralteten</strong> Browser. Bitte <a href="http://www.whatbrowser.org/intl/de/" target="_blank">aktualisieren Sie Ihren Browser</a> um diese Website am besten darstellen zu können.</p>
   <![endif]-->
 
-    <nav class="mobile-nav-container toggle-target">
-      <?php snippet('nav-mobile') ?>
-    </nav>
+  <nav class="mobile-nav-container toggle-target">
+    <?php snippet('nav-mobile') ?>
+  </nav>
 
-    <div class="header">
-      <div class="limiter">
-        <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
+  <div class="header">
+    <div class="limiter">
+      <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
 
-        <h1>Title</h1>
-      </div>
+      <h1>Title</h1>
     </div>
+  </div>

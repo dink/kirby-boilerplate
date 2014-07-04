@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('build', ['scripts', 'sass', 'images', 'fonts']);
+gulp.task('build', ['scripts', 'sass', 'fonts', 'csslibs']);

@@ -2479,7 +2479,8 @@ summary {
   padding: 0;
   list-style: none; }
 
-.block-list__item {
+.block-list__item,
+.block-list > li {
   padding: 26px; }
 
 /*------------------------------------*\
@@ -2490,7 +2491,8 @@ summary {
  * a `ul` or `ol`.
  */
 .ui-list,
-.ui-list__item {
+.ui-list__item,
+.ui-list > li {
   border: 0 solid #cccccc; }
 
 .ui-list {
@@ -2499,14 +2501,16 @@ summary {
   list-style: none;
   border-top-width: 1px; }
 
-.ui-list__item {
+.ui-list__item,
+.ui-list > li {
   padding: 26px;
   border-bottom-width: 1px; }
 
 /**
  * Small ui-lists.
  */
-.ui-list--small > .ui-list__item {
+.ui-list--small > .ui-list__item,
+.ui-list.ui-list--small > li {
   padding: 13px; }
 
 /*------------------------------------*\
@@ -2853,6 +2857,12 @@ summary {
  * word format (e.g. `two-thirds`). Toggle formats by overriding the
  * `$inuit-use-fractions` variable defined below.
  */
+/**
+ * Whole.
+ */
+[class~="1/1"] {
+  width: 100% !important; }
+
 /**
  * Halves.
  */
