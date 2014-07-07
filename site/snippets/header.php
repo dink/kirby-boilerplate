@@ -38,6 +38,8 @@
 
   <?php echo js('assets/js/site.js') ?>
 
+  <?php echo html::shiv(); ?>
+
 </head>
   <body>
 

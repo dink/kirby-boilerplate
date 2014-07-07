@@ -13,6 +13,7 @@ global.devDomain = "kirby-boilerplate.dev";
 
 global.paths = {
   csslibs: [
+    'assets/css/src/libs/*.css'
     'bower_components/leaflet/dist/leaflet.css',
     'bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'
   ],
@@ -22,6 +23,7 @@ global.paths = {
     'bower_components/lodash/lodash.js', 
     'bower_components/bean/bean.js', 
     'bower_components/revolverjs/js/revolver.js',
+    'assets/js/src/libs/*.js',
     'bower_components/mg-*/*.js',
     'assets/js/src/*.js'
   ]
