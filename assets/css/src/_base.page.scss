@@ -1,34 +1,4 @@
 html {
-  //background: $background-color;
-}
-
-body {
-  font-family: $base-font-family;
-  color: $text-color;
-  overflow: hidden;
-}
-
-.content {
-  padding: 20px 0;
-  background-color: #fff;
-  margin: 0;
-  margin-bottom: 100px;
-}
-
-.btn{
-    background-color:$brand-color;
-    color:#fff;
-
-    &:hover {
-      background-color: darken($brand-color, 10%);
-      color: white;
-    }
-}
-
-.browsehappy {
-  margin-top: 0;
-  margin-bottom: 1em;
-  background: #ccc;
-  color: #000;
-  padding: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
 }

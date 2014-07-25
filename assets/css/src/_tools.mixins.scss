@@ -1,3 +1,26 @@
+
+
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $inuit-base-font-size / 1rem * 1;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: ();
+    @each $value in $px-values {
+      // If the value is zero or not a number, return it
+      @if $value == 0 or type-of( $value ) != "number" {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values; } }
+
+
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  *
@@ -10,6 +33,66 @@
         -ms-#{$property}:$value;
          -o-#{$property}:$value;
             #{$property}:$value;
+}
+
+// Apply ‘attention’ styles in one go.
+@mixin attention($self: false) {
+
+    @if($self != false) {
+
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+
+    }
+
+    @else {
+
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+
+    }
+
+}
+
+// Generate Helvetica Neue’s numbered font-weights from their aliases.
+@mixin font-weight($font-weight) {
+
+    @if ($font-weight == "regular") {
+        font-weight: 300;
+    }
+
+    @if ($font-weight == "bold") {
+        font-weight: 600;
+    }
+
+}
+
+// Create all specified heading styles in one go.
+@mixin headings($from: 1, $to: 6) {
+
+    %base-heading {
+        @content;
+    }
+
+    @if $from >= 1 and $to <= 6{
+
+        @for $i from $from through $to{
+
+            h#{$i} {
+                @extend %base-heading;
+            }
+
+        }
+
+    }
+
 }
 
 /**
@@ -169,72 +252,3 @@
 
 }
 
-
-/**
- * Media query mixin.
- *
- * It’s not great practice to define solid breakpoints up-front, preferring to
- * modify your design when it needs it, rather than assuming you’ll want a
- * change at ‘mobile’. However, as inuit.css is required to take a hands off
- * approach to design decisions, this is the closest we can get to baked-in
- * responsiveness. It’s flexible enough to allow you to set your own breakpoints
- * but solid enough to be frameworkified.
- *
- * We define some broad breakpoints in our vars file that are picked up here
- * for use in a simple media query mixin. Our options are:
- *
- * palm
- * lap
- * lap-and-up
- * portable
- * desk
- * desk-wide
- *
- * Not using a media query will, naturally, serve styles to all devices.
- *
- * `@include media-query(palm){ [styles here] }`
- *
- * We work out your end points for you:
- */
-$palm-end:              $lap-start - 1px;
-$lap-end:               $desk-start - 1px;
-
-@mixin media-query($media-query){
-
-    @if $media-query == palm{
-
-        @media only screen and (max-width:$palm-end) { @content; }
-
-    }
-
-    @if $media-query == lap{
-
-        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
-
-    }
-
-    @if $media-query == lap-and-up{
-
-        @media only screen and (min-width:$lap-start) { @content; }
-
-    }
-
-    @if $media-query == portable{
-
-        @media only screen and (max-width:$lap-end) { @content; }
-
-    }
-
-    @if $media-query == desk{
-
-        @media only screen and (min-width:$desk-start) { @content; }
-
-    }
-
-    @if $media-query == desk-wide{
-
-        @media only screen and (min-width: $desk-wide-start) { @content; }
-
-    }
-
-}

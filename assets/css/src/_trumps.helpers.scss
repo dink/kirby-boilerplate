@@ -1,67 +1,31 @@
 
-/**
- * Align items to the right where they imply progression/movement forward, e.g.:
- *
-   <p class=proceed><a href=#>Read more...</a></p>
- *
- */
-.proceed{
-    text-align:right!important;
+
+@mixin hide() {
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
-.btn.proceed {
-  float: right;
+.hide { @include hide(); }
+
+@include media-query(palm) {
+    .hide-palm { @include hide(); }
 }
 
-/**
- * Add/remove floats
- */
-
-.float--none    { float:none !important; }
-
-@include media-query (lap-and-up) {
-  .float--right   { float:right!important; }
-  .float--left    { float:left !important; }  
-
-  figure.float--right {
-    margin-left: $inuit-base-spacing-unit;
-    margin-bottom: $inuit-base-spacing-unit;
-  }
-
-  figure.float--left {
-    margin-right: $inuit-base-spacing-unit;
-    margin-bottom: $inuit-base-spacing-unit;
-  }
+@include media-query(lap) {
+    .hide-lap { @include hide(); }
 }
 
-
-/**
- * Text alignment
- */
-.text--left     { text-align:left  !important; }
-.text--center   { text-align:center!important; }
-.text--right    { text-align:right !important; }
-
-.visuallyhidden, .is-hidden, .is-invisible {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
+@include media-query(lap-and-up) {
+    .hide-lap-and-up { @include hide(); }
 }
 
-.is-visible {
-  display: block !important;
+@include media-query(portable) {
+    .hide-portable { @include hide(); }
 }
 
-.brand-color {
-  color: $brand-color;
-}
-
-.image--rounded {
-  border: 5px solid white;
-  @include vendor(border-radius, 50%);
+@include media-query(desk) {
+    .hide-desk { @include hide(); }
 }

@@ -9,6 +9,17 @@
  * Here we pull in some variables, include the inuit.css framework, then add our
  * project-specific components afterwards.
  */
+/**
+ * #SETTINGS
+ */
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
+/**
+ * #FONTAWESOME
+ */
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -1333,7 +1344,7 @@
   content: "\f196"; }
 
 /**
- * Tell inuit.css when breakpoints start.
+ * #TOOLS
  */
 /**
  * Create vendor-prefixed CSS in one go, e.g.
@@ -1384,32 +1395,9 @@
  *
  */
 /**
- * Media query mixin.
- *
- * It’s not great practice to define solid breakpoints up-front, preferring to
- * modify your design when it needs it, rather than assuming you’ll want a
- * change at ‘mobile’. However, as inuit.css is required to take a hands off
- * approach to design decisions, this is the closest we can get to baked-in
- * responsiveness. It’s flexible enough to allow you to set your own breakpoints
- * but solid enough to be frameworkified.
- *
- * We define some broad breakpoints in our vars file that are picked up here
- * for use in a simple media query mixin. Our options are:
- *
- * palm
- * lap
- * lap-and-up
- * portable
- * desk
- * desk-wide
- *
- * Not using a media query will, naturally, serve styles to all devices.
- *
- * `@include media-query(palm){ [styles here] }`
- *
- * We work out your end points for you:
+ * #GENERIC
  */
-/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -1777,6 +1765,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 dl, dd, ol, ul,
 form, fieldset, legend,
+figure,
 table, th, td, caption,
 hr {
   margin: 0;
@@ -1807,11 +1796,19 @@ ins {
 \*------------------------------------*/
 /**
  * Set the global `box-sizing` state to `border-box`.
+ *
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ * paulirish.com/2012/box-sizing-border-box-ftw
  */
-*, *:before, *:after {
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
 
 /*------------------------------------*\
     #SHARED
@@ -1821,38 +1818,28 @@ ins {
  * base line-height. This allows us to keep a consistent vertical rhythm.
  * As per: csswizardry.com/2012/06/single-direction-margin-declarations
  */
-h1, h2, h3, h4, h5, h6, hgroup,
+h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
 blockquote, p, address,
 table,
 fieldset, figure,
-pre {
-  margin-bottom: 26px;
-  margin-bottom: 1.44444rem; }
+pre,
+.page-head,
+.promo__block {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
 
 /**
  * Where `margin-left` is concerned we want to try and indent certain elements
  * by a consistent amount. Define that amount once,here.
  */
 ul, ol, dd {
-  margin-left: 52px;
-  margin-left: 2.88889rem; }
+  margin-left: 48px;
+  margin-left: 3rem; }
 
-/*------------------------------------*\
-    #CLEARFIX
-\*------------------------------------*/
 /**
- * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
- * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
- * over and over in your markup.
+ * #BASE
  */
-.clearfix:after, .nav:after,
-.media:after,
-.box:after {
-  content: "";
-  display: table;
-  clear: both; }
-
 /*------------------------------------*\
     #PAGE
 \*------------------------------------*/
@@ -1866,30 +1853,33 @@ ul, ol, dd {
  *    navigating between pages that do/do not have enough content to produce
  *    scrollbars naturally.
  * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent certain mobile browsers from automatically zooming fonts.
+ * 5. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
  */
 html {
-  font-size: 1.125em;
+  font-size: 1em;
   /* [1] */
-  line-height: 1.44444;
+  line-height: 1.5;
   /* [1] */
   background-color: white;
-  color: #333333;
+  color: #444444;
   overflow-y: scroll;
   /* [2] */
   min-height: 100%;
-  /* [3] */ }
+  /* [3] */
+  -webkit-text-size-adjust: 100%;
+  /* [4] */
+  -ms-text-size-adjust: 100%;
+  /* [4] */
+  -moz-osx-font-smoothing: grayscale;
+  /* [5] */
+  -webkit-font-smoothing: antialiased;
+  /* [5] */ }
 
-/*------------------------------------*\
-    #PARAGRAPHS
-\*------------------------------------*/
-/**
- * The `.lede` class is used to make the introductory text (usually a paragraph)
- * of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
- */
-.lede {
-  font-size: 20.25px;
-  font-size: 1.125rem;
-  line-height: 1.28395; }
+html {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300; }
 
 /*------------------------------------*\
     #HEADINGS
@@ -1900,39 +1890,94 @@ html {
  */
 h1,
 .alpha {
-  font-size: 40px;
-  font-size: 2.22222rem;
-  line-height: 1.3; }
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.33333; }
 
 h2,
 .beta {
-  font-size: 20px;
-  font-size: 1.11111rem;
-  line-height: 1.3; }
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.6; }
 
 h3,
 .gamma {
-  font-size: 16px;
-  font-size: 0.88889rem;
-  line-height: 1.625; }
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
 
 h4,
 .delta {
-  font-size: 14px;
-  font-size: 0.77778rem;
-  line-height: 1.85714; }
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
 
 h5,
 .epsilon {
-  font-size: 14px;
-  font-size: 0.77778rem;
-  line-height: 1.85714; }
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
 
 h6,
 .zeta {
   font-size: 14px;
-  font-size: 0.77778rem;
-  line-height: 1.85714; }
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+
+/*------------------------------------*\
+    #TYPE
+\*------------------------------------*/
+/**
+ * Typographical base selectors.
+ */
+/**
+ * Headings 1–6.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  color: #12ac3e; }
+
+/**
+ * A generic heading style which can be applied to any headings.
+ */
+.heading {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091; }
+
+/**
+ * Emboldened elements.
+ */
+a,
+strong, b,
+dt {
+  font-weight: 600; }
+
+/**
+ * Horizontal rules.
+ */
+hr {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+  margin-bottom: 22px; }
+
+a {
+  text-decoration: none;
+  color: #12ac3e; }
+  a:hover, a:active, a:focus {
+    text-decoration: underline; }
+
+/*------------------------------------*\
+    #PARAGRAPHS
+\*------------------------------------*/
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
+ */
+.lede {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
 
 /*------------------------------------*\
     #LISTS
@@ -1950,12 +1995,17 @@ li > ol {
 /**
  * 1. Fluid images for responsive purposes.
  * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
  */
 img {
   max-width: 100%;
   /* [1] */
   font-style: italic;
-  /* [2] */ }
+  /* [2] */
+  vertical-align: middle;
+  /* [3] */ }
 
 /**
  * If a `width` and/or `height` attribute have been explicitly defined, let’s
@@ -1965,454 +2015,26 @@ img[width],
 img[height] {
   max-width: none; }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  color: #666666;
-  overflow: hidden; }
-
-.content {
-  padding: 20px 0;
-  background-color: #fff;
-  margin: 0;
-  margin-bottom: 100px; }
-
-.btn {
-  background-color: #931b80;
-  color: #fff; }
-  .btn:hover {
-    background-color: #68135a;
-    color: white; }
-
-.browsehappy {
-  margin-top: 0;
-  margin-bottom: 1em;
-  background: #ccc;
-  color: #000;
-  padding: 1em; }
-
-a {
-  color: #931b80;
-  -webkit-transition: color 0.3s;
-  -moz-transition: color 0.3s;
-  -ms-transition: color 0.3s;
-  -o-transition: color 0.3s;
-  transition: color 0.3s;
-  text-decoration: none; }
-  a:hover {
-    color: #666666;
-    text-decoration: underline; }
-  a:active {
-    color: #68135a; }
-  a:focus {
-    outline: 1px solid #931b80; }
-
-/* External */
-a[rel="external"] {
-  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0IEw4LDQgTDYsNiBMMiw2IEwyLDE0IEwxMCwxNCBMMTAsMTAuNSBMMTIsOC41IEwxMiwxNiBMMCwxNiBaIE0wLDQiIGZpbGw9InJnYmEoMCwwLDAsMC4zMykiPjwvcGF0aD48cGF0aCBkPSJNNiwwIEwxNiwwIEwxNiwxMCBMMTQsMTAgTDE0LDMuNSBMNy41LDEwIEw2LDguNSBMMTIuNSwyIEw2LDIgWiBNNiwwIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMzMpIj48L3BhdGg+PC9zdmc+) no-repeat right 40%;
-  background-size: 12px;
-  padding-right: 1em; }
-
-/* Tag */
-a[rel="tag"] {
-  font-size: 0.75em;
-  /* 12px */
-  line-height: 1.3334;
-  /* 16px */
-  text-transform: lowercase;
-  border: 0; }
-
-h1, .alpha {
-  font-size: 31px;
-  font-weight: 500; }
-
-h2, .beta {
-  font-size: 24px;
-  font-weight: normal; }
-
-h3, .gama {
-  font-size: 21px;
-  font-weight: normal; }
-
-h4, .delta {
-  font-size: 18px;
-  font-weight: 300; }
-
-h5, .epsilon {
-  font-size: 18px;
-  font-weight: 300; }
-
-h6, .zeta {
-  font-size: 18px;
-  font-weight: 300; }
-
-h1 {
-  color: #000;
-  text-transform: uppercase; }
-
-h2 {
-  color: #000; }
-
-h3 {
-  color: #000; }
-
-h4 {
-  color: #000;
-  text-transform: uppercase; }
-
-h5 {
-  color: #555;
-  text-transform: uppercase; }
-
-h6 {
-  color: #888;
-  text-transform: uppercase; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif; }
-  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: inherit; }
-    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-      text-decoration: none; }
-
-.text ul {
-  list-style-position: outside;
-  margin-left: 0;
-  text-align: left;
-  font-weight: 300; }
-.text li {
-  position: relative;
-  margin-left: 26px; }
-.text ol {
-  text-align: left;
-  font-weight: 300; }
-
-p, pre, ul, ol, dl, table, fieldset, details {
-  font-size: 1em;
-  line-height: 1.5;
-  margin: 26px 0; }
-
-figure, figcaption, blockquote {
-  margin: 13px 0; }
-
-hr {
-  margin: 26px 0 26px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: 0;
-  height: 0; }
-
-pre {
-  margin-left: 1.5em;
-  /* 24px */
-  white-space: pre-wrap; }
-
-pre code,
-pre samp {
-  line-height: 1.5; }
-
-blockquote {
-  color: #666;
-  font-size: 1em;
-  /* 16px */
-  line-height: 1.5;
-  /* 32px */
-  border-left: 0.25em solid #e9e9e9;
-  padding: 0 1.5em 0 1em;
-  /* 0 24px 0 16px */ }
-
-blockquote p {
-  line-height: 1.5;
-  /* 24px */
-  margin: 0.5em 0;
-  /* 8px 0 */ }
-
-/* Grouping > Lists */
-ol {
-  list-style-type: decimal;
-  padding: 0; }
-
-dt {
-  font-size: 1em;
-  /* 16px */
-  font-weight: 700;
-  line-height: 1.5;
-  /* 24px */ }
-
-dd {
-  margin-left: 1.5em;
-  /* 24px */ }
-
-dd > *, li > * {
-  margin-top: 0; }
-
-/* Grouping > Figures */
-figcaption {
-  color: #999;
-  font-size: 0.75em;
-  /* 12px */
-  line-height: 1.3334;
-  /* 16px */
-  padding: 0.6667em 0;
-  /* 8px 0 */
-  clear: left; }
-
-blockquote + figcaption::before {
-  content: "\2014"; }
-
-/* ============================================================
-  Text-level semantics
-============================================================ */
-em, i, cite, var {
-  font-family: Georgia,serif;
-  font-style: italic;
-  line-height: 90%; }
-
-strong, b {
-  color: #333;
-  font-weight: 700;
-  line-height: 90%; }
-
-:lang(en-gb) > q {
-  quotes: "\201C" "\201D" "\2018" "\2019"; }
-
-q::before {
-  content: open-quote; }
-
-q::after {
-  content: close-quote; }
-
-small {
-  color: #666;
-  font-size: 0.75em;
-  /* 12px */
-  line-height: 1.3334;
-  /* 16px */
-  display: inline-block; }
-
-abbr {
-  color: #666;
-  font-size: 0.875em;
-  /* 14px */
-  line-height: 90%;
-  letter-spacing: 0.0357em;
-  /* 0.5px */ }
-
-abbr[title],
-dfn[title] {
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
-  cursor: help; }
-
-code, samp {
-  font-family: 'DejaVu Sans Mono',Inconsolata,Consolas,'Lucida Console',monospace;
-  font-size: 1em;
-  padding: 0.2rem 0.2rem;
-  background-color: rgba(100, 100, 100, 0.1); }
-
-code .comment {
-  color: #999; }
-
-kbd {
-  color: #666;
-  font-family: inherit;
-  font-size: 87.5%;
-  line-height: 90%;
-  background-color: #f9f9f9;
-  margin: 0 0.25em;
-  /* 0 4px */
-  border: 1px solid #e9e9e9;
-  border-radius: 4px;
-  padding: 0.3334em 0.5em;
-  box-shadow: inset 0 1px 0 #fff; }
-
-sub {
-  font-size: smaller;
-  line-height: 90%;
-  vertical-align: sub; }
-
-sup {
-  font-size: smaller;
-  line-height: 90%;
-  vertical-align: super; }
-
-/* ============================================================
-  Edits
-============================================================ */
-mark, ins {
-  background-color: #fff9d9;
-  line-height: 90%;
-  padding: 0 0.125em;
-  /* 0 2px */ }
-
-ins {
-  background-color: #e9e9e9; }
-
-del, s {
-  line-height: 90%;
-  text-decoration: line-through; }
-
-/* ============================================================
-  Tabular data
-============================================================ */
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-caption {
-  caption-side: bottom;
-  color: #999;
-  font-size: 0.75em;
-  /* 12px */
-  line-height: 1.3334;
-  /* 16px */
-  text-align: left;
-  margin: 1em 0;
-  /* 12px 0 */ }
-
-td, th {
-  text-align: left;
-  border-bottom: 1px solid #e9e9e9;
-  padding: 0.375em 2em 0.375em 0;
-  /* 6px 32px 6px 0 */
-  vertical-align: top; }
-
-th {
-  font-weight: 700;
-  padding-bottom: 0.5em;
-  /* 8px */ }
-
-thead th {
-  border-bottom: 2px solid #ddd; }
-
-/* ============================================================
-  Forms
-============================================================ */
-fieldset {
-  border: 0;
-  padding: 0; }
-
-legend {
-  margin: 0; }
-
-label {
-  line-height: 1.5;
-  cursor: pointer; }
-
-button,
-input,
-select,
-textarea {
-  color: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
-  outline: 0; }
-
-select {
-  -webkit-appearance: button;
-  appearance: normal; }
-
-button,
-input[type="button"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  line-height: normal;
-  width: auto;
-  cursor: pointer; }
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin-right: 0.25em; }
-
-input[type="search"] {
-  -webkit-appearance: none; }
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-[disabled] {
-  cursor: default; }
-
-/* Placeholder */
-::-webkit-input-placeholder {
-  color: #999; }
-
-:focus::-webkit-input-placeholder {
-  color: #ccc; }
-
-:-moz-placeholder {
-  color: #999; }
-
-:focus:-moz-placeholder {
-  color: #ccc; }
-
-:-ms-input-placeholder {
-  color: #999; }
-
-:focus:-ms-input-placeholder {
-  color: #ccc; }
-
-/* ============================================================
-  Interactive
-============================================================ */
-summary {
-  border: 0;
-  outline: 0;
-  cursor: pointer; }
-
-/* ============================================================
-  Print styles
-============================================================ */
-@media print {
-  @page {
-    margin: 0.5cm; }
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    text-shadow: none !important;
-    box-shadow: none; }
-
-  p, h1, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h1, h2, h3, h4 {
-    page-break-after: avoid; }
-
-  blockquote {
-    border-left: 4px solid #ccc;
-    padding: 0 1em;
-    page-break-inside: avoid; }
-
-  a, a:visited {
-    color: #000 !important;
-    border-bottom: 1px dotted #999;
-    padding-left: 0 !important; }
-
-  thead {
-    display: table-header-group; }
-
-  tr, img {
-    page-break-inside: avoid; }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="url"],
-  input[type="password"],
-  input[type="search"],
-  textarea {
-    border-bottom: 1px solid #999;
-    box-shadow: none; } }
-/*------------------------------------*\
-    #TABLES
-\*------------------------------------*/
-.table {
-  width: 100%; }
+/**
+ * #OBJECTS
+ */
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-right: 12px;
+  padding-left: 12px; }
+  @media screen and (min-width: 720px) {
+    .wrapper {
+      padding-right: 24px;
+      padding-left: 24px; } }
+
+/**
+ * This is a bit of a magic number; a wrapper this wide will allow us to ‘hang’
+ * one icon out of the rest of the page’s ‘grid’. It is used primarily on the
+ * home page promo boxes.
+ */
+.wrapper--wide {
+  max-width: 1276px; }
 
 /*------------------------------------*\
     #LAYOUT
@@ -2430,7 +2052,7 @@ summary {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -26px; }
+  margin-left: -24px; }
 
 /**
  * 1. Cause columns to stack side-by-side.
@@ -2442,209 +2064,12 @@ summary {
 .layout__item {
   display: inline-block;
   /* [1] */
-  padding-left: 26px;
+  padding-left: 24px;
   /* [2] */
   vertical-align: top;
   /* [3] */
   width: 100%;
   /* [4] */ }
-
-/**
- * Layouts with small gutters.
- */
-.layout--small {
-  margin-left: -13px; }
-  .layout--small > .layout__item {
-    padding-left: 13px; }
-
-/*------------------------------------*\
-    #BARE-LIST
-\*------------------------------------*/
-/**
- * The bare-list object simply removes any indents and bullet points from lists.
- */
-.bare-list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-/*------------------------------------*\
-    #BLOCK-LIST
-\*------------------------------------*/
-/**
- * The block list object creates blocky list items out of a `ul` or `ol`.
- */
-.block-list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.block-list__item,
-.block-list > li {
-  padding: 26px; }
-
-/*------------------------------------*\
-    #UI-LIST
-\*------------------------------------*/
-/**
- * The UI list object creates blocky list items with a keyline separator out of
- * a `ul` or `ol`.
- */
-.ui-list,
-.ui-list__item,
-.ui-list > li {
-  border: 0 solid #cccccc; }
-
-.ui-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top-width: 1px; }
-
-.ui-list__item,
-.ui-list > li {
-  padding: 26px;
-  border-bottom-width: 1px; }
-
-/**
- * Small ui-lists.
- */
-.ui-list--small > .ui-list__item,
-.ui-list.ui-list--small > li {
-  padding: 13px; }
-
-/*------------------------------------*\
-    #MEDIA
-\*------------------------------------*/
-/**
- * Place any image- and text-like content side-by-side, as per:
- * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
- */
-.media {
-  display: block; }
-
-.media__img {
-  float: left;
-  margin-right: 26px; }
-  .media__img > img {
-    display: block; }
-
-.media__body {
-  overflow: hidden;
-  display: block; }
-  .media__body,
-  .media__body > :last-child {
-    margin-bottom: 0; }
-
-/**
- * Small media objects.
- */
-.media--small > .media__img {
-  margin-right: 13px; }
-
-/*------------------------------------*\
-    #FLAG
-\*------------------------------------*/
-/**
- * The flag object is a design pattern similar to the media object, however it
- * utilises `display: table[-cell];` to give us control over the vertical
- * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
- */
-/**
- * 1. Allows us to control vertical alignments
- * 2. Force the object to be the full width of its parent. Combined with [1],
- *    this makes the object behave in a quasi-`display: block;` manner.
- */
-.flag {
-  display: table;
-  /* [1] */
-  width: 100%;
-  /* [2] */ }
-
-/**
- * Items within a flag object. There should only ever be one of each.
- *
- * 1. Default to aligning content to their middles.
- */
-.flag__img,
-.flag__body {
-  display: table-cell;
-  vertical-align: middle;
-  /* [1] */ }
-
-/**
- * Flag images have a space between them and the body of the object.
- */
-.flag__img {
-  padding-right: 26px; }
-  .flag__img > img {
-    display: block;
-    max-width: none; }
-
-/**
- * The container for the main content of the flag object.
- *
- * 1. Forces the `.flag__body` to take up all remaining space.
- */
-.flag__body {
-  width: 100%;
-  /* [1] */ }
-
-/**
- * Large flags.
- */
-.flag--large > .flag__img {
-  padding-right: 52px; }
-
-/*------------------------------------*\
-    #BOX
-\*------------------------------------*/
-/**
- * The box object simply boxes off content.
- */
-/**
- * 1. So we can apply the `.box` class to naturally-inline elements.
- */
-.box {
-  display: block;
-  /* [1] */
-  padding: 26px; }
-  .box > :last-child {
-    margin-bottom: 0; }
-
-/*------------------------------------*\
-    #TABS
-\*------------------------------------*/
-/**
- * A simple abstraction for making equal-width navigation tabs.
- *
- * 1. Reset any residual styles (most likely from lists).
- * 2. Tables for layout!
- * 3. Force all `table-cell` children to have equal widths.
- * 4. Force the object to be the full width of its parent. Combined with [2],
- *    this makes the object behave in a quasi-`display: block;` manner.
- */
-.tabs {
-  margin: 0;
-  /* [1] */
-  padding: 0;
-  /* [1] */
-  list-style: none;
-  /* [1] */
-  display: table;
-  /* [2] */
-  table-layout: fixed;
-  /* [3] */
-  width: 100%;
-  /* [4] */
-  text-align: center; }
-
-.tabs__item {
-  display: table-cell;
-  /* [2] */ }
-
-.tabs__link {
-  display: block; }
 
 /*------------------------------------*\
     #BUTTONS
@@ -2656,10 +2081,12 @@ summary {
  * 1. Allow us to style box model properties.
  * 2. Line different sized buttons up a little nicer.
  * 3. Make buttons inherit font styles (often necessary when styling `input`s as
- *    buttons.
+ *    buttons).
  * 4. Reset/normalize some styles.
  * 5. Force all button-styled elements to appear clickable.
  * 6. Fixes odd inner spacing in IE7.
+ * 7. Subtract the border size from the padding value so that buttons do not
+ *    grow larger as we add borders.
  */
 .btn {
   display: inline-block;
@@ -2678,49 +2105,62 @@ summary {
   /* [5] */
   overflow: visible;
   /* [6] */
-  padding: 13px 26px;
-  background-color: #931b80; }
-  .btn, .btn:hover, .btn:active, .btn:focus, .btn:visited {
+  padding: 10px 22px;
+  /* [7] */
+  background-color: #12ac3e;
+  border: 2px solid #12ac3e;
+  border-radius: 3px; }
+  .btn, .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
     /* [4] */
     color: white; }
 
 /**
- * Small buttons.
+ * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
  */
-.btn--small {
-  padding: 7px 13px; }
+.btn::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
 
-.nav {
-  list-style: none;
-  margin: 0;
-  padding-left: 0; }
-  .nav > li,
-  .nav > li > a {
-    display: inline-block; }
+/**
+ * Full-width buttons.
+ */
+.btn--full {
+  width: 100%; }
 
-.nav--block > li {
-  display: block;
-  float: left; }
-  .nav--block > li > a {
+/*------------------------------------*\
+    #MEDIA
+\*------------------------------------*/
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+.media {
+  display: block; }
+
+.media__img {
+  float: left;
+  margin-right: 24px; }
+  .media__img > img {
     display: block; }
 
-.nav--stacked > li {
-  float: none; }
-
-.dropdown {
-  position: relative; }
-
-.dropdown__toggle:focus {
-  outline: 0; }
-
-.dropdown__menu {
-  display: none;
-  background-clip: padding-box;
-  z-index: 10; }
-
-.dropdown--open > .dropdown__menu {
+.media__body {
+  overflow: hidden;
   display: block; }
+  .media__body,
+  .media__body > :last-child {
+    margin-bottom: 0; }
+
+/*------------------------------------*\
+    #LIST-BARE
+\*------------------------------------*/
+/**
+ * The list-bare object simply removes any indents and bullet points from lists.
+ */
+.list-bare {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
 
 .toggle--on {
   display: block !important; }
@@ -2728,50 +2168,241 @@ summary {
 .toggle-target {
   display: none; }
 
-.tip {
+/**
+ * #COMPONENTS
+ */
+.browsehappy {
+  margin-top: 0;
+  margin-bottom: 1em;
+  background: #ccc;
+  color: #000;
+  padding: 1em; }
+
+.page-head {
+  padding-top: 12px;
+  /* [1] */
+  padding-bottom: 12px;
+  /* [1] */
+  background-color: #eeeeee;
+  padding-top: 12px;
+  /* [1] */
+  padding-bottom: 12px;
+  /* [1] */
+  background-color: #eeeeee; }
+  @media screen and (min-width: 720px) {
+    .page-head {
+      padding-top: 24px;
+      /* [2] */
+      padding-bottom: 24px;
+      /* [2] */ } }
+
+/*------------------------------------*\
+    #BANDS
+\*------------------------------------*/
+.band {
+  padding-top: 24px;
+  padding-bottom: 24px; }
+  @media screen and (min-width: 1024px) {
+    .band {
+      padding-top: 48px;
+      padding-bottom: 48px; } }
+
+.band--large {
+  padding: 48px; }
+
+.band--highlight {
+  background-color: white; }
+
+.band--tint {
+  background-color: #f2f2f2; }
+
+.promo {
+  padding-bottom: 0; }
+  @media screen and (min-width: 1024px) {
+    .promo {
+      padding-bottom: 24px; } }
+
+.promo__links {
+  text-align: center; }
+  @media screen and (min-width: 720px) {
+    .promo__links {
+      word-spacing: 1.5em; }
+      .promo__links > .btn {
+        word-spacing: normal; } }
+
+.promo__icon {
+  color: #dddddd;
+  font-size: 58px;
+  width: 58px;
+  margin-top: -10px; }
+
+.page-foot {
+  margin: 48px 0;
+  text-align: center; }
+
+/*------------------------------------*\
+    #SITE-NAV
+\*------------------------------------*/
+.site-nav {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2; }
+  @media screen and (min-width: 720px) {
+    .site-nav {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5; } }
+
+.site-nav__home {
+  display: block;
+  float: left; }
+
+.site-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  float: right; }
+
+.site-nav__item {
+  float: left;
+  width: auto; }
+  .site-nav__item:last-child a {
+    padding-right: 0; }
+
+.site-nav__link {
+  display: block;
+  padding-right: 12px;
+  padding-left: 12px;
+  line-height: 64px;
+  color: #444444; }
+  .site-nav__link:hover, .site-nav__link:active, .site-nav__link:focus {
+    text-decoration: none;
+    color: #12ac3e; }
+
+.site-nav__link--active {
+  color: #12ac3e; }
+
+.btn {
+  font-weight: 600;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s; }
+  .btn:hover, .btn:active, .btn:focus {
+    background-color: #0d7e2d;
+    border-color: #0d7e2d; }
+
+.btn--secondary {
+  background: none;
+  color: #12ac3e; }
+  .btn--secondary:hover, .btn--secondary:active, .btn--secondary:focus {
+    background: none;
+    color: #0d7e2d; }
+
+.box {
+  border-radius: 3px; }
+
+.box--highlight {
+  background-color: white;
+  border-bottom: 1px solid #dddddd; }
+
+.box--tint {
+  background-color: #f2f2f2; }
+
+.slider {
+  width: 100%;
+  margin-top: -79px;
   position: relative; }
 
-.tip:hover:after {
-  content: attr(data-tip);
-  color: #fff;
-  font-size: 0.75em;
-  /* 12px */
-  line-height: 1.3334em;
-  /* 16px */
-  text-align: left;
-  background-color: #000;
-  border-radius: 0.3334em;
-  /* 4px */
-  padding: 0.6667em;
-  /* 8px */
-  width: 16.5em;
-  /* 200px */
-  opacity: 0.9;
-  display: block;
+.slider__list {
+  margin: 0;
+  height: 355px;
+  list-style: none;
+  position: relative;
+  overflow: hidden; }
+
+.slider__item {
+  height: 355px;
+  opacity: 0;
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 2em;
-  /* 24px */
-  z-index: 98; }
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
 
-.tip:hover:before {
-  content: "";
-  border: solid;
-  border-color: #000 transparent;
-  border-width: 0.5em 0.5em 0 0.5em;
-  /* 6px 6px 0 6px */
-  opacity: 0.9;
+.slider__item--current {
+  opacity: 1; }
+
+.slider__image {
   display: block;
-  left: 1em;
-  /* 12px */
-  bottom: 1em;
-  /* 12px */
-  position: absolute;
-  z-index: 99; }
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
-.header {
+.slider .limiter {
   position: relative; }
 
+.slider__content {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 24px;
+  width: 400px;
+  font-size: 14px;
+  line-height: 1.5em; }
+  .slider__content p:last-child {
+    margin-bottom: 0; }
+
+.slider__direction_nav_prev, .slider__direction_nav_next {
+  position: absolute;
+  top: 45%;
+  font-size: 40px;
+  color: #12ac3e;
+  cursor: pointer;
+  opacity: .5;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+  -moz-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+  -ms-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+  -o-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.5); }
+  .slider__direction_nav_prev:hover, .slider__direction_nav_next:hover {
+    opacity: 1; }
+
+.slider__direction_nav_prev {
+  left: 10px; }
+
+.slider__direction_nav_next {
+  right: 10px; }
+
+@media screen and (max-width: 719px) {
+  .slider__content {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    line-height: 1.5em; }
+    .slider__content h2 {
+      font-size: 16px;
+      line-height: 1.3em; } }
 .mobile-nav li {
   display: block;
   width: 100%; }
@@ -2779,33 +2410,32 @@ summary {
   color: white;
   font-size: 16px;
   line-height: 2em;
-  font-family: "Open Sans", sans-serif;
   font-weight: 300;
   display: block;
-  padding: 0 13px;
-  background-color: #931b80;
-  border-left: 10px solid #931b80; }
+  padding: 0 12px;
+  background-color: #12ac3e;
+  border-left: 10px solid #12ac3e; }
   .mobile-nav a:hover {
     text-decoration: none; }
   .mobile-nav a:active {
     background-color: white;
-    color: #931b80; }
+    color: #12ac3e; }
   .mobile-nav a.active {
-    border-left-color: #a94999; }
+    border-left-color: #12ac3e; }
 .mobile-nav .dropdown__toggle {
   position: relative; }
 .mobile-nav .dropdown__icon {
   display: block;
   position: absolute;
   top: 50%;
-  right: 13px;
+  right: 12px;
   margin-top: -8px; }
 .mobile-nav ul > li > a {
   display: block;
-  background-color: #68135a;
-  border-left-color: #68135a; }
+  background-color: #0d7e2d;
+  border-left-color: #0d7e2d; }
   .mobile-nav ul > li > a.active {
-    border-left-color: #3d0b35; }
+    border-left-color: #08501d; }
 
 .mobile-nav-toggle {
   font-size: 12px;
@@ -2815,24 +2445,12 @@ summary {
   top: 0;
   z-index: 1000; }
 
-@media only screen and (min-width: 768px) {
+@media screen and (min-width: 720px) {
   .mobile-nav-toggle {
     display: none; }
 
   .mobile-nav-container {
     display: none !important; } }
-.limiter {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px; }
-
-@media only screen and (max-width: 767px) {
-  a[href^=tel] {
-    border: 1px solid #fff;
-    border-radius: 5px;
-    display: inline-block;
-    padding: 5px 10px;
-    text-decoration: none; } }
 .mg__fish {
   display: inline-block;
   margin-left: 3px;
@@ -2848,6 +2466,24 @@ summary {
   .mg__fish:hover {
     opacity: 1; }
 
+/**
+ * #TRUMPS
+ */
+/*------------------------------------*\
+    #CLEARFIX
+\*------------------------------------*/
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
+ * over and over in your markup.
+ */
+.clearfix:after,
+.media:after,
+.site-nav:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 /*------------------------------------*\
     #WIDTHS
 \*------------------------------------*/
@@ -2860,144 +2496,364 @@ summary {
 /**
  * Whole.
  */
-[class~="1/1"] {
+.one-whole {
   width: 100% !important; }
 
 /**
  * Halves.
  */
-[class~="1/2"],
-[class~="2/4"],
-[class~="3/6"],
-[class~="4/8"],
-[class~="5/10"],
-[class~="6/12"] {
+.one-half,
+.two-quarters,
+.three-sixths,
+.four-eighths,
+.five-tenths,
+.six-twelfths {
   width: 50% !important; }
 
 /**
  * Thirds.
  */
-[class~="1/3"],
-[class~="2/6"],
-[class~="3/9"],
-[class~="4/12"] {
+.one-third,
+.two-sixths,
+.three-ninths,
+.four-twelfths {
   width: 33.3333333% !important; }
 
-[class~="2/3"],
-[class~="4/6"],
-[class~="6/9"],
-[class~="8/12"] {
+.two-thirds,
+.four-sixths,
+.six-ninths,
+.eight-twelfths {
   width: 66.6666666% !important; }
 
 /**
  * Quarters.
  */
-[class~="1/4"],
-[class~="2/8"],
-[class~="3/12"] {
+.one-quarter,
+.two-eighths,
+.three-twelfths {
   width: 25% !important; }
 
-[class~="3/4"],
-[class~="6/8"],
-[class~="9/12"] {
+.three-quarters,
+.six-eighths,
+.nine-twelfths {
   width: 75% !important; }
 
 /**
  * Fifths.
  */
-[class~="1/5"],
-[class~="2/10"] {
+.one-fifth,
+.two-tenths {
   width: 20% !important; }
 
-[class~="2/5"],
-[class~="4/10"] {
+.two-fifths,
+.four-tenths {
   width: 40% !important; }
 
-[class~="3/5"],
-[class~="6/10"] {
+.three-fifths,
+.six-tenths {
   width: 60% !important; }
 
-[class~="4/5"],
-[class~="8/10"] {
+.four-fifths,
+.eight-tenths {
   width: 80% !important; }
 
 /**
  * Sixths.
  */
-[class~="1/6"],
-[class~="2/12"] {
+.one-sixth,
+.two-twelfths {
   width: 16.6666666% !important; }
 
-[class~="5/6"],
-[class~="10/12"] {
+.five-sixths,
+.ten-twelfths {
   width: 83.3333333% !important; }
 
 /**
  * Eighths.
  */
-[class~="1/8"] {
+.one-eighth {
   width: 12.5% !important; }
 
-[class~="3/8"] {
+.three-eighths {
   width: 37.5% !important; }
 
-[class~="5/8"] {
+.five-eighths {
   width: 62.5% !important; }
 
-[class~="7/8"] {
+.seven-eighths {
   width: 87.5% !important; }
 
 /**
  * Ninths.
  */
-[class~="1/9"] {
+.one-ninth {
   width: 11.1111111% !important; }
 
-[class~="2/9"] {
+.two-ninths {
   width: 22.2222222% !important; }
 
-[class~="4/9"] {
+.four-ninths {
   width: 44.4444444% !important; }
 
-[class~="5/9"] {
+.five-ninths {
   width: 55.5555555% !important; }
 
-[class~="7/9"] {
+.seven-ninths {
   width: 77.7777777% !important; }
 
-[class~="8/9"] {
+.eight-ninths {
   width: 88.8888888% !important; }
 
 /**
  * Tenths.
  */
-[class~="1/10"] {
+.one-tenth {
   width: 10% !important; }
 
-[class~="3/10"] {
+.three-tenths {
   width: 30% !important; }
 
-[class~="7/10"] {
+.seven-tenths {
   width: 70% !important; }
 
-[class~="9/10"] {
+.nine-tenths {
   width: 90% !important; }
 
 /**
  * Twelfths.
  */
-[class~="1/12"] {
+.one-twelfth {
   width: 8.3333333% !important; }
 
-[class~="5/12"] {
+.five-twelfths {
   width: 41.6666666% !important; }
 
-[class~="7/12"] {
+.seven-twelfths {
   width: 58.3333333% !important; }
 
-[class~="11/12"] {
+.eleven-twelfths {
   width: 91.6666666% !important; }
 
+/*------------------------------------*\
+    #WIDTHS-RESPONSIVE
+\*------------------------------------*/
+/**
+ * Some simple, crude, starting-point widths to use alongside the layout system.
+ */
+@media screen and (max-width: 719px) {
+  .palm-one-whole {
+    width: 100%; }
+
+  .palm-one-half {
+    width: 50%; }
+
+  .palm-one-third {
+    width: 33.333333333%; }
+
+  .palm-two-thirds {
+    width: 66.666666666%; }
+
+  .palm-one-quarter {
+    width: 25%; }
+
+  .palm-three-quarters {
+    width: 75%; }
+
+  .palm-one-fifth {
+    width: 20%; }
+
+  .palm-two-fifths {
+    width: 40%; }
+
+  .palm-three-fifths {
+    width: 60%; }
+
+  .palm-four-fifths {
+    width: 80%; }
+
+  .palm-one-tenth {
+    width: 10%; }
+
+  .palm-three-tenths {
+    width: 30%; }
+
+  .palm-seven-tenths {
+    width: 70%; }
+
+  .palm-nine-tenths {
+    width: 90%; } }
+@media screen and (min-width: 720px) and (max-width: 1023px) {
+  .lap-one-whole {
+    width: 100%; }
+
+  .lap-one-half {
+    width: 50%; }
+
+  .lap-one-third {
+    width: 33.333333333%; }
+
+  .lap-two-thirds {
+    width: 66.666666666%; }
+
+  .lap-one-quarter {
+    width: 25%; }
+
+  .lap-three-quarters {
+    width: 75%; }
+
+  .lap-one-fifth {
+    width: 20%; }
+
+  .lap-two-fifths {
+    width: 40%; }
+
+  .lap-three-fifths {
+    width: 60%; }
+
+  .lap-four-fifths {
+    width: 80%; }
+
+  .lap-one-tenth {
+    width: 10%; }
+
+  .lap-three-tenths {
+    width: 30%; }
+
+  .lap-seven-tenths {
+    width: 70%; }
+
+  .lap-nine-tenths {
+    width: 90%; } }
+@media screen and (min-width: 720px) {
+  .lap-and-up-one-whole {
+    width: 100%; }
+
+  .lap-and-up-one-half {
+    width: 50%; }
+
+  .lap-and-up-one-third {
+    width: 33.333333333%; }
+
+  .lap-and-up-two-thirds {
+    width: 66.666666666%; }
+
+  .lap-and-up-one-quarter {
+    width: 25%; }
+
+  .lap-and-up-three-quarters {
+    width: 75%; }
+
+  .lap-and-up-one-fifth {
+    width: 20%; }
+
+  .lap-and-up-two-fifths {
+    width: 40%; }
+
+  .lap-and-up-three-fifths {
+    width: 60%; }
+
+  .lap-and-up-four-fifths {
+    width: 80%; }
+
+  .lap-and-up-one-tenth {
+    width: 10%; }
+
+  .lap-and-up-three-tenths {
+    width: 30%; }
+
+  .lap-and-up-seven-tenths {
+    width: 70%; }
+
+  .lap-and-up-nine-tenths {
+    width: 90%; } }
+@media screen and (max-width: 1023px) {
+  .portable-one-whole {
+    width: 100%; }
+
+  .portable-one-half {
+    width: 50%; }
+
+  .portable-one-third {
+    width: 33.333333333%; }
+
+  .portable-two-thirds {
+    width: 66.666666666%; }
+
+  .portable-one-quarter {
+    width: 25%; }
+
+  .portable-three-quarters {
+    width: 75%; }
+
+  .portable-one-fifth {
+    width: 20%; }
+
+  .portable-two-fifths {
+    width: 40%; }
+
+  .portable-three-fifths {
+    width: 60%; }
+
+  .portable-four-fifths {
+    width: 80%; }
+
+  .portable-one-tenth {
+    width: 10%; }
+
+  .portable-three-tenths {
+    width: 30%; }
+
+  .portable-seven-tenths {
+    width: 70%; }
+
+  .portable-nine-tenths {
+    width: 90%; } }
+@media screen and (min-width: 1024px) {
+  .desk-one-whole {
+    width: 100%; }
+
+  .desk-one-half {
+    width: 50%; }
+
+  .desk-one-third {
+    width: 33.333333333%; }
+
+  .desk-two-thirds {
+    width: 66.666666666%; }
+
+  .desk-one-quarter {
+    width: 25%; }
+
+  .desk-three-quarters {
+    width: 75%; }
+
+  .desk-one-fifth {
+    width: 20%; }
+
+  .desk-two-fifths {
+    width: 40%; }
+
+  .desk-three-fifths {
+    width: 60%; }
+
+  .desk-four-fifths {
+    width: 80%; }
+
+  .desk-one-tenth {
+    width: 10%; }
+
+  .desk-three-tenths {
+    width: 30%; }
+
+  .desk-seven-tenths {
+    width: 70%; }
+
+  .desk-nine-tenths {
+    width: 90%; }
+
+  .desk-push-one-tenth {
+    position: relative;
+    left: 10%; } }
 /*------------------------------------*\
     #SPACING
 \*------------------------------------*/
@@ -3013,778 +2869,79 @@ summary {
  * Add margins.
  */
 .m {
-  margin: 26px !important; }
+  margin: 24px !important; }
 
 .mt {
-  margin-top: 26px !important; }
+  margin-top: 24px !important; }
 
 .mr {
-  margin-right: 26px !important; }
+  margin-right: 24px !important; }
 
 .mb {
-  margin-bottom: 26px !important; }
+  margin-bottom: 24px !important; }
 
 .ml {
-  margin-left: 26px !important; }
+  margin-left: 24px !important; }
 
 .mh {
-  margin-right: 26px !important;
-  margin-left: 26px !important; }
+  margin-right: 24px !important;
+  margin-left: 24px !important; }
 
-.mv {
-  margin-top: 26px !important;
-  margin-bottom: 26px !important; }
+.mv, .promo__links {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important; }
 
-/**
- * Add small margins.
- */
-.m- {
-  margin: 13px !important; }
-
-.mt- {
-  margin-top: 13px !important; }
-
-.mr- {
-  margin-right: 13px !important; }
-
-.mb- {
-  margin-bottom: 13px !important; }
-
-.ml- {
-  margin-left: 13px !important; }
-
-.mh- {
-  margin-right: 13px !important;
-  margin-left: 13px !important; }
-
-.mv- {
-  margin-top: 13px !important;
-  margin-bottom: 13px !important; }
-
-/**
- * Add large margins.
- */
-.m\+ {
-  margin: 52px !important; }
-
-.mt\+ {
-  margin-top: 52px !important; }
-
-.mr\+ {
-  margin-right: 52px !important; }
-
-.mb\+ {
-  margin-bottom: 52px !important; }
-
-.ml\+ {
-  margin-left: 52px !important; }
-
-.mh\+ {
-  margin-right: 52px !important;
-  margin-left: 52px !important; }
-
-.mv\+ {
-  margin-top: 52px !important;
-  margin-bottom: 52px !important; }
-
-/**
- * Remove margins.
- */
-.m0 {
-  margin: 0 !important; }
-
-.mt0 {
-  margin-top: 0 !important; }
-
-.mr0 {
-  margin-right: 0 !important; }
-
-.mb0 {
-  margin-bottom: 0 !important; }
-
-.ml0 {
-  margin-left: 0 !important; }
-
-.mh0 {
-  margin-right: 0 !important;
-  margin-left: 0 !important; }
-
-.mv0 {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important; }
-
-/**
- * Padding helper classes.
- *
- * Add paddings.
- */
-.p {
-  padding: 26px !important; }
-
-.pt {
-  padding-top: 26px !important; }
-
-.pr {
-  padding-right: 26px !important; }
-
-.pb {
-  padding-bottom: 26px !important; }
-
-.pl {
-  padding-left: 26px !important; }
-
-.ph {
-  padding-right: 26px !important;
-  padding-left: 26px !important; }
-
-.pv {
-  padding-top: 26px !important;
-  padding-bottom: 26px !important; }
-
-/**
- * Add small paddings.
- */
-.p- {
-  padding: 13px !important; }
-
-.pt- {
-  padding-top: 13px !important; }
-
-.pr- {
-  padding-right: 13px !important; }
-
-.pb- {
-  padding-bottom: 13px !important; }
-
-.pl- {
-  padding-left: 13px !important; }
-
-.ph- {
-  padding-right: 13px !important;
-  padding-left: 13px !important; }
-
-.pv- {
-  padding-top: 13px !important;
-  padding-bottom: 13px !important; }
-
-/**
- * Add large paddings.
- */
-.p\+ {
-  padding: 52px !important; }
-
-.pt\+ {
-  padding-top: 52px !important; }
-
-.pr\+ {
-  padding-right: 52px !important; }
-
-.pb\+ {
-  padding-bottom: 52px !important; }
-
-.pl\+ {
-  padding-left: 52px !important; }
-
-.ph\+ {
-  padding-right: 52px !important;
-  padding-left: 52px !important; }
-
-.pv\+ {
-  padding-top: 52px !important;
-  padding-bottom: 52px !important; }
-
-/**
- * Remove paddings.
- */
-.p0 {
-  padding: 0 !important; }
-
-.pt0 {
-  padding-top: 0 !important; }
-
-.pr0 {
-  padding-right: 0 !important; }
-
-.pb0 {
-  padding-bottom: 0 !important; }
-
-.pl0 {
-  padding-left: 0 !important; }
-
-.ph0 {
-  padding-right: 0 !important;
-  padding-left: 0 !important; }
-
-.pv0 {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important; }
-
-/**
- * Align items to the right where they imply progression/movement forward, e.g.:
- *
-   <p class=proceed><a href=#>Read more...</a></p>
- *
- */
-.proceed {
-  text-align: right !important; }
-
-.btn.proceed {
-  float: right; }
-
-/**
- * Add/remove floats
- */
-.float--none {
-  float: none !important; }
-
-@media only screen and (min-width: 768px) {
-  .float--right {
-    float: right !important; }
-
-  .float--left {
-    float: left !important; }
-
-  figure.float--right {
-    margin-left: 26px;
-    margin-bottom: 26px; }
-
-  figure.float--left {
-    margin-right: 26px;
-    margin-bottom: 26px; } }
-/**
- * Text alignment
- */
-.text--left {
-  text-align: left  !important; }
-
-.text--center {
-  text-align: center !important; }
-
-.text--right {
-  text-align: right !important; }
-
-.visuallyhidden, .is-hidden, .is-invisible {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
+.hide {
   position: absolute !important;
-  width: 1px !important; }
-
-.is-visible {
-  display: block !important; }
-
-.brand-color {
-  color: #931b80; }
-
-.image--rounded {
-  border: 5px solid white;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%; }
-
-/**
-* Whole
-*/
-.one-whole {
-  width: 100%; }
-
-@media only screen and (max-width: 767px) {
-  /**
-  * Whole
-  */
-  .palm-one-whole {
-    width: 100%; }
-
-  /**
-  * Halves
-  */
-  .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths {
-    width: 50%; }
-
-  /**
-  * Thirds
-  */
-  .palm-one-third, .palm-two-sixths, .palm-four-twelfths {
-    width: 33.333%; }
-
-  .palm-two-thirds, .palm-four-sixths, .palm-eight-twelfths {
-    width: 66.666%; }
-
-  /**
-  * Quarters
-  */
-  .palm-one-quarter, .palm-two-eighths, .palm-three-twelfths {
-    width: 25%; }
-
-  .palm-three-quarters, .palm-six-eighths, .palm-nine-twelfths {
-    width: 75%; }
-
-  /**
-  * Fifths
-  */
-  .palm-one-fifth, .palm-two-tenths {
-    width: 20%; }
-
-  .palm-two-fifths, .palm-four-tenths {
-    width: 40%; }
-
-  .palm-three-fifths, .palm-six-tenths {
-    width: 60%; }
-
-  .palm-four-fifths, .palm-eight-tenths {
-    width: 80%; }
-
-  /**
-  * Sixths
-  */
-  .palm-one-sixth, .palm-two-twelfths {
-    width: 16.666%; }
-
-  .palm-five-sixths, .palm-ten-twelfths {
-    width: 83.333%; }
-
-  /**
-  * Eighths
-  */
-  .palm-one-eighth {
-    width: 12.5%; }
-
-  .palm-three-eighths {
-    width: 37.5%; }
-
-  .palm-five-eighths {
-    width: 62.5%; }
-
-  .palm-seven-eighths {
-    width: 87.5%; }
-
-  /**
-  * Tenths
-  */
-  .palm-one-tenth {
-    width: 10%; }
-
-  .palm-three-tenths {
-    width: 30%; }
-
-  .palm-seven-tenths {
-    width: 70%; }
-
-  .palm-nine-tenths {
-    width: 90%; }
-
-  /**
-  * Twelfths
-  */
-  .palm-one-twelfth {
-    width: 8.333%; }
-
-  .palm-five-twelfths {
-    width: 41.666%; }
-
-  .palm-seven-twelfths {
-    width: 58.333%; }
-
-  .palm-eleven-twelfths {
-    width: 91.666%; } }
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /**
-  * Whole
-  */
-  .lap-one-whole {
-    width: 100%; }
-
-  /**
-  * Halves
-  */
-  .lap-one-half, .lap-two-quarters, .lap-three-sixths, .lap-four-eighths, .lap-five-tenths, .lap-six-twelfths {
-    width: 50%; }
-
-  /**
-  * Thirds
-  */
-  .lap-one-third, .lap-two-sixths, .lap-four-twelfths {
-    width: 33.333%; }
-
-  .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths {
-    width: 66.666%; }
-
-  /**
-  * Quarters
-  */
-  .lap-one-quarter, .lap-two-eighths, .lap-three-twelfths {
-    width: 25%; }
-
-  .lap-three-quarters, .lap-six-eighths, .lap-nine-twelfths {
-    width: 75%; }
-
-  /**
-  * Fifths
-  */
-  .lap-one-fifth, .lap-two-tenths {
-    width: 20%; }
-
-  .lap-two-fifths, .lap-four-tenths {
-    width: 40%; }
-
-  .lap-three-fifths, .lap-six-tenths {
-    width: 60%; }
-
-  .lap-four-fifths, .lap-eight-tenths {
-    width: 80%; }
-
-  /**
-  * Sixths
-  */
-  .lap-one-sixth, .lap-two-twelfths {
-    width: 16.666%; }
-
-  .lap-five-sixths, .lap-ten-twelfths {
-    width: 83.333%; }
-
-  /**
-  * Eighths
-  */
-  .lap-one-eighth {
-    width: 12.5%; }
-
-  .lap-three-eighths {
-    width: 37.5%; }
-
-  .lap-five-eighths {
-    width: 62.5%; }
-
-  .lap-seven-eighths {
-    width: 87.5%; }
-
-  /**
-  * Tenths
-  */
-  .lap-one-tenth {
-    width: 10%; }
-
-  .lap-three-tenths {
-    width: 30%; }
-
-  .lap-seven-tenths {
-    width: 70%; }
-
-  .lap-nine-tenths {
-    width: 90%; }
-
-  /**
-  * Twelfths
-  */
-  .lap-one-twelfth {
-    width: 8.333%; }
-
-  .lap-five-twelfths {
-    width: 41.666%; }
-
-  .lap-seven-twelfths {
-    width: 58.333%; }
-
-  .lap-eleven-twelfths {
-    width: 91.666%; } }
-@media only screen and (min-width: 768px) {
-  /**
-  * Whole
-  */
-  .lap-and-up-one-whole {
-    width: 100%; }
-
-  /**
-  * Halves
-  */
-  .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-three-sixths, .lap-and-up-four-eighths, .lap-and-up-five-tenths, .lap-and-up-six-twelfths {
-    width: 50%; }
-
-  /**
-  * Thirds
-  */
-  .lap-and-up-one-third, .lap-and-up-two-sixths, .lap-and-up-four-twelfths {
-    width: 33.333%; }
-
-  .lap-and-up-two-thirds, .lap-and-up-four-sixths, .lap-and-up-eight-twelfths {
-    width: 66.666%; }
-
-  /**
-  * Quarters
-  */
-  .lap-and-up-one-quarter, .lap-and-up-two-eighths, .lap-and-up-three-twelfths {
-    width: 25%; }
-
-  .lap-and-up-three-quarters, .lap-and-up-six-eighths, .lap-and-up-nine-twelfths {
-    width: 75%; }
-
-  /**
-  * Fifths
-  */
-  .lap-and-up-one-fifth, .lap-and-up-two-tenths {
-    width: 20%; }
-
-  .lap-and-up-two-fifths, .lap-and-up-four-tenths {
-    width: 40%; }
-
-  .lap-and-up-three-fifths, .lap-and-up-six-tenths {
-    width: 60%; }
-
-  .lap-and-up-four-fifths, .lap-and-up-eight-tenths {
-    width: 80%; }
-
-  /**
-  * Sixths
-  */
-  .lap-and-up-one-sixth, .lap-and-up-two-twelfths {
-    width: 16.666%; }
-
-  .lap-and-up-five-sixths, .lap-and-up-ten-twelfths {
-    width: 83.333%; }
-
-  /**
-  * Eighths
-  */
-  .lap-and-up-one-eighth {
-    width: 12.5%; }
-
-  .lap-and-up-three-eighths {
-    width: 37.5%; }
-
-  .lap-and-up-five-eighths {
-    width: 62.5%; }
-
-  .lap-and-up-seven-eighths {
-    width: 87.5%; }
-
-  /**
-  * Tenths
-  */
-  .lap-and-up-one-tenth {
-    width: 10%; }
-
-  .lap-and-up-three-tenths {
-    width: 30%; }
-
-  .lap-and-up-seven-tenths {
-    width: 70%; }
-
-  .lap-and-up-nine-tenths {
-    width: 90%; }
-
-  /**
-  * Twelfths
-  */
-  .lap-and-up-one-twelfth {
-    width: 8.333%; }
-
-  .lap-and-up-five-twelfths {
-    width: 41.666%; }
-
-  .lap-and-up-seven-twelfths {
-    width: 58.333%; }
-
-  .lap-and-up-eleven-twelfths {
-    width: 91.666%; } }
-@media only screen and (max-width: 1023px) {
-  /**
-  * Whole
-  */
-  .portable-one-whole {
-    width: 100%; }
-
-  /**
-  * Halves
-  */
-  .portable-one-half, .portable-two-quarters, .portable-three-sixths, .portable-four-eighths, .portable-five-tenths, .portable-six-twelfths {
-    width: 50%; }
-
-  /**
-  * Thirds
-  */
-  .portable-one-third, .portable-two-sixths, .portable-four-twelfths {
-    width: 33.333%; }
-
-  .portable-two-thirds, .portable-four-sixths, .portable-eight-twelfths {
-    width: 66.666%; }
-
-  /**
-  * Quarters
-  */
-  .portable-one-quarter, .portable-two-eighths, .portable-three-twelfths {
-    width: 25%; }
-
-  .portable-three-quarters, .portable-six-eighths, .portable-nine-twelfths {
-    width: 75%; }
-
-  /**
-  * Fifths
-  */
-  .portable-one-fifth, .portable-two-tenths {
-    width: 20%; }
-
-  .portable-two-fifths, .portable-four-tenths {
-    width: 40%; }
-
-  .portable-three-fifths, .portable-six-tenths {
-    width: 60%; }
-
-  .portable-four-fifths, .portable-eight-tenths {
-    width: 80%; }
-
-  /**
-  * Sixths
-  */
-  .portable-one-sixth, .portable-two-twelfths {
-    width: 16.666%; }
-
-  .portable-five-sixths, .portable-ten-twelfths {
-    width: 83.333%; }
-
-  /**
-  * Eighths
-  */
-  .portable-one-eighth {
-    width: 12.5%; }
-
-  .portable-three-eighths {
-    width: 37.5%; }
-
-  .portable-five-eighths {
-    width: 62.5%; }
-
-  .portable-seven-eighths {
-    width: 87.5%; }
-
-  /**
-  * Tenths
-  */
-  .portable-one-tenth {
-    width: 10%; }
-
-  .portable-three-tenths {
-    width: 30%; }
-
-  .portable-seven-tenths {
-    width: 70%; }
-
-  .portable-nine-tenths {
-    width: 90%; }
-
-  /**
-  * Twelfths
-  */
-  .portable-one-twelfth {
-    width: 8.333%; }
-
-  .portable-five-twelfths {
-    width: 41.666%; }
-
-  .portable-seven-twelfths {
-    width: 58.333%; }
-
-  .portable-eleven-twelfths {
-    width: 91.666%; } }
-@media only screen and (min-width: 1024px) {
-  /**
-  * Whole
-  */
-  .desk-one-whole {
-    width: 100%; }
-
-  /**
-  * Halves
-  */
-  .desk-one-half, .desk-two-quarters, .desk-three-sixths, .desk-four-eighths, .desk-five-tenths, .desk-six-twelfths {
-    width: 50%; }
-
-  /**
-  * Thirds
-  */
-  .desk-one-third, .desk-two-sixths, .desk-four-twelfths {
-    width: 33.333%; }
-
-  .desk-two-thirds, .desk-four-sixths, .desk-eight-twelfths {
-    width: 66.666%; }
-
-  /**
-  * Quarters
-  */
-  .desk-one-quarter, .desk-two-eighths, .desk-three-twelfths {
-    width: 25%; }
-
-  .desk-three-quarters, .desk-six-eighths, .desk-nine-twelfths {
-    width: 75%; }
-
-  /**
-  * Fifths
-  */
-  .desk-one-fifth, .desk-two-tenths {
-    width: 20%; }
-
-  .desk-two-fifths, .desk-four-tenths {
-    width: 40%; }
-
-  .desk-three-fifths, .desk-six-tenths {
-    width: 60%; }
-
-  .desk-four-fifths, .desk-eight-tenths {
-    width: 80%; }
-
-  /**
-  * Sixths
-  */
-  .desk-one-sixth, .desk-two-twelfths {
-    width: 16.666%; }
-
-  .desk-five-sixths, .desk-ten-twelfths {
-    width: 83.333%; }
-
-  /**
-  * Eighths
-  */
-  .desk-one-eighth {
-    width: 12.5%; }
-
-  .desk-three-eighths {
-    width: 37.5%; }
-
-  .desk-five-eighths {
-    width: 62.5%; }
-
-  .desk-seven-eighths {
-    width: 87.5%; }
-
-  /**
-  * Tenths
-  */
-  .desk-one-tenth {
-    width: 10%; }
-
-  .desk-three-tenths {
-    width: 30%; }
-
-  .desk-seven-tenths {
-    width: 70%; }
-
-  .desk-nine-tenths {
-    width: 90%; }
-
-  /**
-  * Twelfths
-  */
-  .desk-one-twelfth {
-    width: 8.333%; }
-
-  .desk-five-twelfths {
-    width: 41.666%; }
-
-  .desk-seven-twelfths {
-    width: 58.333%; }
-
-  .desk-eleven-twelfths {
-    width: 91.666%; } }
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+@media screen and (max-width: 719px) {
+  .hide-palm {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
+@media screen and (min-width: 720px) and (max-width: 1023px) {
+  .hide-lap {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
+@media screen and (min-width: 720px) {
+  .hide-lap-and-up {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
+@media screen and (max-width: 1023px) {
+  .hide-portable {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }
+@media screen and (min-width: 1024px) {
+  .hide-desk {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px); } }

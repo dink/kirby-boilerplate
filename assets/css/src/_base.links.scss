@@ -1,37 +1,9 @@
 a {
-  color: $brand-color;
-  @include vendor(transition, color .3s);
-  text-decoration: none;
+    text-decoration: none;
+    color: $color-links;
 
-  &:hover {
-    color: $text-color;
-    text-decoration: underline;
-  }
+    @include attention() {
+        text-decoration: underline;
+    }
 
-  &:active {
-    color: darken($brand-color, 10%);
-  }
-
-  &:focus {
-    outline: 1px solid $brand-color;
-  }
-
-  &:link, &:visited, &:hover {
-  }
-}
-
-
-/* External */
-a[rel="external"] {
-  background: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCw0IEw4LDQgTDYsNiBMMiw2IEwyLDE0IEwxMCwxNCBMMTAsMTAuNSBMMTIsOC41IEwxMiwxNiBMMCwxNiBaIE0wLDQiIGZpbGw9InJnYmEoMCwwLDAsMC4zMykiPjwvcGF0aD48cGF0aCBkPSJNNiwwIEwxNiwwIEwxNiwxMCBMMTQsMTAgTDE0LDMuNSBMNy41LDEwIEw2LDguNSBMMTIuNSwyIEw2LDIgWiBNNiwwIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMzMpIj48L3BhdGg+PC9zdmc+) no-repeat right 40%;
-  background-size: 12px;
-  padding-right: 1em;
-}
-
-/* Tag */
-a[rel="tag"] {
-  font-size: 0.75em; /* 12px */
-  line-height: 1.3334; /* 16px */
-  text-transform: lowercase;
-  border: 0;
 }

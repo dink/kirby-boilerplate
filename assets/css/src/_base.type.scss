@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #TYPE
+\*------------------------------------*/
+
+/**
+ * Typographical base selectors.
+ */
+
+/**
+ * Headings 1–6.
+ */
+@include headings() {
+    @include font-weight(regular);
+    color: $color-headings;
+}
+
+
+
+
+
+/**
+ * A generic heading style which can be applied to any headings.
+ */
+.heading {
+    @include font-size(22px);
+}
+
+
+
+
+
+/**
+ * Emboldened elements.
+ */
+a,
+strong, b,
+dt {
+    @include font-weight(bold);
+}
+
+
+
+
+
+/**
+ * Horizontal rules.
+ */
+hr {
+    border: none;
+    border-bottom: 2px solid $color-gray-ui;
+    margin-bottom: $spacing-unit - 2px;
+}

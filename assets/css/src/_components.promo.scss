@@ -1,0 +1,35 @@
+
+.promo {
+    padding-bottom: 0;
+
+    @include media-query(desk) {
+        padding-bottom: $spacing-unit;
+    }
+
+}
+
+    .promo__block {
+        @extend %margin-bottom;
+    }
+
+    .promo__links {
+        text-align: center;
+        @extend .mv;
+
+        @include media-query(lap-and-up) {
+            word-spacing: 1.5em;
+
+            > .btn {
+                word-spacing: normal;
+            }
+
+        }
+
+    }
+
+    .promo__icon {
+        color: $color-iconic;
+        font-size: 58px;
+        width: 58px;
+        margin-top: -10px;
+    }

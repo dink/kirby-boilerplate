@@ -1,0 +1,16 @@
+
+.page-head {
+  @extend %margin-bottom;
+  padding-top:    $spacing-unit--small; /* [1] */
+  padding-bottom: $spacing-unit--small; /* [1] */
+  background-color: $color-page-head-background;
+
+  padding-top:    $spacing-unit--small; /* [1] */
+    padding-bottom: $spacing-unit--small; /* [1] */
+    background-color: $color-page-head-background;
+
+    @include media-query(lap-and-up) {
+      padding-top:    $spacing-unit; /* [2] */
+      padding-bottom: $spacing-unit; /* [2] */
+    }
+}

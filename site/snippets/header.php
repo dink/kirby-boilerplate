@@ -30,8 +30,12 @@
   <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
   <meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
 
+  <!-- Prefetch DNS for external assets (Twitter widgets etc). -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//themes.googleusercontent.com">
+
   <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,600,300">
 
   <?php echo css('assets/css/libs.css') ?>
   <?php echo css('assets/css/site.css') ?>
@@ -51,10 +55,34 @@
     <?php snippet('nav-mobile') ?>
   </nav>
 
-  <div class="header">
-    <div class="limiter">
+  <div class="page-head">
+    <div class="wrapper">
       <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
 
-      <h1>Title</h1>
+      <nav class="site-nav">
+
+          <a href="/" class="site-nav__home">
+            <img src="<?php echo url('assets/images/fish-black.svg') ?>" alt="home" height=64 />
+          </a>
+
+          <?php
+
+          // main menu items
+          $items = $pages->visible();
+
+          ?>
+
+          <?php if($items->count() > 0): ?>
+          <ul class="site-nav__list">
+            <?php foreach($items as $item): ?>
+            <li class="site-nav__item"><a class="site-nav__link <?php ecco($item->isOpen(), 'site-nav__link--active') ?>" href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
+            <?php endforeach ?>
+          </ul>
+          <?php endif ?>
+
+      </nav>
     </div>
   </div>
+
+
+

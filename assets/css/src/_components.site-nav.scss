@@ -1,8 +1,55 @@
 
+/*------------------------------------*\
+    #SITE-NAV
+\*------------------------------------*/
+
+// Internal variables.
+$logo-height:   64px;
+
 .site-nav {
+  @extend %clearfix;
+  @include font-size(12px);
 
+  @include media-query(lap-and-up) {
+    @include font-size(16px);
+  }
 }
 
-@include media-query(lap-and-up) {
-  
-}
+    .site-nav__home {
+        display: block;
+        float: left;
+    }
+
+    .site-nav__list {
+        margin:  0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        float: right;
+    }
+
+        .site-nav__item {
+            float: left;
+            width: auto;
+
+            &:last-child a {
+                padding-right: 0;
+            }
+        }
+
+            .site-nav__link {
+                display: block;
+                padding-right: 12px;
+                padding-left:  12px;
+                line-height: $logo-height;
+                color: $color-site-nav;
+
+                @include attention() {
+                    text-decoration: none;
+                    color: $color-links;
+                }
+            }
+
+                .site-nav__link--active {
+                    color: $color-links;
+                }

@@ -13,7 +13,7 @@ global.devDomain = "kirby-boilerplate.dev";
 
 global.paths = {
   csslibs: [
-    'assets/css/src/libs/*.css'
+    'assets/css/src/libs/*.css',
     'bower_components/leaflet/dist/leaflet.css',
     'bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'
   ],
