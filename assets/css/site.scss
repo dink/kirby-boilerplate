@@ -101,17 +101,17 @@ $inuit-enable-btn--full:    true;
 @import "../../../bower_components/inuit-buttons/objects.buttons";
 @import "../../../bower_components/inuit-media/objects.media";
 
+@import "../../../bower_components/inuit-list-bare/objects.list-bare";
 // @import "../../../bower_components/inuit-flag/objects.flag";
 // @import "../../../bower_components/inuit-box/objects.box";
 // @import "../../../bower_components/inuit-list-ui/objects.list-ui";
-// @import "../../../bower_components/inuit-list-bare/objects.list-bare";
 // @import "../../../bower_components/inuit-list-block/objects.list-block";
 // @import "../../../bower_components/inuit-tables/objects.tables";
 // @import "../../../bower_components/inuit-tabs/objects.tabs";
 
+@import "../../../bower_components/mg-toggle/objects.toggle";
 // @import "../../../bower_components/mg-nav/objects.nav";
 // @import "../../../bower_components/mg-dropdown/objects.dropdown";
-// @import "../../../bower_components/mg-toggle/objects.toggle";
 // @import "../../../bower_components/mg-tooltip/objects.tooltip";
 
 
@@ -140,9 +140,10 @@ $inuit-enable-btn--full:    true;
 
 $inuit-use-fractions:   false;
 @import "../../../bower_components/inuit-widths/trumps.widths";
-@import "trumps.widths-responsive";
+@import "../../../bower_components/inuit-widths-responsive/trumps.widths-responsive";
 
 $inuit-enable-margins:  true;
 @import "../../../bower_components/inuit-spacing/trumps.spacing";
+@import "../../../bower_components/inuit-spacing/trumps.spacing-responsive";
 
 @import "trumps.helpers";

@@ -15,13 +15,13 @@
     "inuit-normalize": "3.0.1",
     "inuit-page": "0.2.1",
     "inuit-reset": "~0.1.1",
-    "inuit-responsive-settings": "0.1.2",
-    "inuit-responsive-tools": "~0.1.1",
+    "inuit-responsive-settings": "~0.1.3",
+    "inuit-responsive-tools": "~0.1.2",
     "inuit-media": "~0.4.1",
     "inuit-box": "~0.4.2",
     "inuit-list-ui": "~0.4.1",
     "inuit-list-block": "~0.4.2",
-    "inuit-list-inline": "~0.3.0",
+    "inuit-list-inline": "~0.3.1",
     "inuit-layout": "~0.3.2",
     "inuit-flag": "~0.3.2",
     "inuit-paragraphs": "~0.1.4",
@@ -29,14 +29,13 @@
     "inuit-list-bare": "~0.3.0",
     "inuit-shared": "~0.1.3",
     "inuit-clearfix": "~0.2.0",
-    "inuit-widths": "~0.3.1",
-    "inuit-spacing": "~0.6.1",
+    "inuit-widths": "~0.3.2",
+    "inuit-spacing": "~0.6.2",
     "inuit-tabs": "~0.2.1",
     "inuit-tables": "~0.2.1",
     "inuit-buttons": "~0.4.1",
-    "inuit-images": "~0.2.0",
+    "inuit-images": "~0.3.2",
     "inuit-lists": "~0.1.0",
-    "inuit-print": "git@github.com:inuitcss/trumps.print.git",
     "mg-buttons": "git@github.com:madergrafisch/mg-buttons.git",
     "mg-nav": "git@github.com:madergrafisch/mg-nav.git",
     "mg-dropdown": "git@github.com:madergrafisch/mg-dropdown.git",
@@ -46,9 +45,13 @@
     "leaflet": "~0.7.2",
     "Leaflet.awesome-markers": "~2.0.1",
     "revolverjs": "~2.0.0",
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "inuit-widths-responsive": "~0.1.2",
+    "inuit-print": "*",
+    "inuit-spacing-responsive": "~0.0.4"
   },
   "resolutions": {
-    "inuit-defaults": "0.2.1"
+    "inuit-defaults": "0.2.1",
+    "inuit-responsive-settings": "~0.1.3"
   }
 }
