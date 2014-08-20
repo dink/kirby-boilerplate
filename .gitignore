@@ -1,2 +1,5 @@
 node_modules
 bower_components
+site/accounts/**
+thumbs/**
+.DS_Store
