@@ -1,11 +1,11 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    livereload = require('gulp-livereload');
 
-gulp.task('watch', ['csslibs', 'browserSync'], function() {
-  gulp.watch(global.paths.scss, ['sass']);
-  gulp.watch(global.paths.scripts, ['scripts']);
+// gulp.task('watch', ['csslibs', 'browserSync'], function() {
+gulp.task('watch', ['csslibs', 'build'], function() {
+    gulp.watch(global.paths.scss, ['sass']);
+    gulp.watch(global.paths.scripts, ['scripts']);
 
-//  var server = livereload();
-//  gulp.watch('assets/css/site.css').on('change', function(file) {
-//    server.changed(file.path);
-//  });
+    livereload.listen();
+    gulp.watch(['assets/css/site.css', 'assets/js/site.js']).on('change', livereload.changed);
 });
