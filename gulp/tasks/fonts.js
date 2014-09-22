@@ -1,7 +1,6 @@
 var changed    = require('gulp-changed');
 var newer      = require('gulp-newer');
 var gulp       = require('gulp');
-var imagemin   = require('gulp-imagemin');
 
 // Copy all static images
 gulp.task('fonts', function() {
