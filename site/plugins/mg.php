@@ -32,6 +32,10 @@ class mg {
     )), true);
   }
 
+    public function test () {
+
+    }
+
   /*
   static public function placeholder ($size = "800x600", $fill = "eee", $color = 'fff', $fontsize = 60, $fontfamiliy = 'Arial') {
     $wh = explode('x', $size);
