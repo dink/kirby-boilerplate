@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-$ignore = array('sitemap', 'error', 'slider');
+$ignore = array('error', 'slider');
 $ignoretpl = array('');
 
 // send the right header
@@ -11,8 +11,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <?php foreach($pages->visible()->index() as $p): ?> 
-    
+  <?php foreach($pages->visible()->index() as $p): ?>
+
   <?php // if($p->depth() > 2) continue ?>
   <?php if(in_array($p->template(), $ignoretpl)) continue ?>
   <?php if(in_array($p->uri(), $ignore)) continue ?>
@@ -21,5 +21,5 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
     <lastmod><?php echo $p->modified('c') ?></lastmod>
     <priority><?php echo ($p->isHomePage()) ? 1 : number_format(0.5/$p->depth(), 1) ?></priority>
   </url>
-  <?php endforeach ?>  
+  <?php endforeach ?>
 </urlset>
