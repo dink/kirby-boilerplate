@@ -32,8 +32,6 @@ of the system, please check out http://getkirby.com/docs
 
 */
 
-c::set('cache.ignore', array('sitemap'));
-
 c::set('routes', array(
   array(
     'pattern' => 'sitemap.xml',
@@ -42,3 +40,5 @@ c::set('routes', array(
     }
   )
 ));
+
+c::set('panel.stylesheet', 'assets/css/panel.css');

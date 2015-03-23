@@ -1,0 +1,32 @@
+@media screen and (min-width: 50em) {
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: scroll;
+        width: 66.66vw;
+        padding: 0 1.5em 1.5em 1.5em;
+        background: #efefef;
+    }
+
+    .modal-content .form {
+        position: relative;
+    }
+
+    .modal-content .buttons {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+        text-align: center;
+        background-color: #fff;
+        background-color: #EFEFEF;
+    }
+
+    .modal-content .buttons .btn-cancel,
+    .modal-content .buttons .btn-submit {
+        float: none;
+        display: inline-block;
+        margin: 0 1em;
+    }
+}
