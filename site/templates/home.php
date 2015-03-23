@@ -6,7 +6,7 @@
 
     <ul class="layout">
 
-      <li class="layout__item  desk-one-third">
+      <li class="layout__item u-1-of-3-desk">
 
         <div class="media  promo__block">
           <div class="media__img">
@@ -18,7 +18,7 @@
           </div>
         </div>
 
-      </li><li class="layout__item  lap-and-up-one-half  desk-one-third">
+      </li><li class="layout__item u-1-of-3-desk">
 
         <div class="media  promo__block">
           <div class="media__img">
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-      </li><li class="layout__item  lap-and-up-one-half  desk-one-third">
+      </li><li class="layout__item u-1-of-3-desk">
 
         <div class="media  promo__block">
           <div class="media__img">
@@ -43,7 +43,7 @@
         </div>
 
       </li><li class="layout__item">
-        <p class="promo__links">
+        <p class="promo__links u-mv">
           <a href="/about/" class="btn  btn--secondary">Weiterlesen</a> oder <a href="http://csswizardry.com/work/" class="btn">Kontaktieren</a>
         </p>
 

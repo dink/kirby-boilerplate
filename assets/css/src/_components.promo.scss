@@ -14,7 +14,6 @@
 
     .promo__links {
         text-align: center;
-        @extend .mv;
 
         @include media-query(lap-and-up) {
             word-spacing: 1.5em;
