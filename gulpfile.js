@@ -19,12 +19,8 @@ global.paths = {
   ],
   scss: 'assets/css/src/*.scss',
   scripts: [
-    'bower_components/jquery/dist/jquery.js', 
-    'bower_components/lodash/lodash.js', 
-    'bower_components/bean/bean.js', 
-    'bower_components/revolverjs/js/revolver.js',
+    'bower_components/jquery/dist/jquery.js',
     'assets/js/src/libs/*.js',
-    'bower_components/mg-*/*.js',
     'assets/js/src/*.js'
   ]
 };

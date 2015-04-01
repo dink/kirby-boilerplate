@@ -1,7 +1,7 @@
 <?php if(!defined('KIRBY')) exit ?>
 
-title: Einfache Seite
-pages: true
+title: Fehler
+pages: false
 files: true
 fields:
   title:

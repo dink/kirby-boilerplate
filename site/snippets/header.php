@@ -51,37 +51,22 @@
     <p class="browsehappy">Sie verwenden einen <strong>veralteten</strong> Browser. Bitte <a href="http://www.whatbrowser.org/intl/de/" target="_blank">aktualisieren Sie Ihren Browser</a> um diese Website am besten darstellen zu können.</p>
   <![endif]-->
 
-  <nav class="mobile-nav-container toggle-target">
-    <?php snippet('nav-mobile') ?>
-  </nav>
-
   <div class="page-head">
+
     <div class="wrapper">
-      <a href="#" class="mobile-nav-toggle btn toggle" data-toggle-target=".mobile-nav-container"><i class="fa fa-bars"></i></a>
 
       <nav class="site-nav">
 
           <a href="/" class="site-nav__home">
-            <img src="<?php echo url('assets/images/fish-black.svg') ?>" alt="home" height=64 />
+            <?php echo $site->title(); ?>
           </a>
 
-          <?php
-
-          // main menu items
-          $items = $pages->visible();
-
-          ?>
-
-          <?php if($items->count() > 0): ?>
-          <ul class="site-nav__list">
-            <?php foreach($items as $item): ?>
-            <li class="site-nav__item"><a class="site-nav__link <?php ecco($item->isOpen(), 'site-nav__link--active') ?>" href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
-            <?php endforeach ?>
-          </ul>
-          <?php endif ?>
+          <?php snippet ('nav'); ?>
 
       </nav>
+
     </div>
+
   </div>
 
 

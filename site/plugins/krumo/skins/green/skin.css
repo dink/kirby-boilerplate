@@ -25,7 +25,6 @@ ul.krumo-first {
 	font: normal 12px arial;
 	border: solid 2px white;
 	border-top-width:1px;
-	background: url(%url%bg.gif);
 	}
 
 /* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
@@ -42,10 +41,10 @@ div.krumo-element {
 
 	line-height: 24px;
 	display:block;
-	
+
 	clear:both;
 	white-space:nowrap;
-	
+
 	border-top: solid 1px white;
 	background: #D7F4CA;
 	padding-left: 10px;

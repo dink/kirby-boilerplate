@@ -1821,9 +1821,7 @@ blockquote, p, address,
 hr,
 table,
 fieldset, figure,
-pre,
-.page-head,
-.promo__block {
+pre {
   margin-bottom: 24px;
   margin-bottom: 1.5rem; }
 
@@ -1949,7 +1947,7 @@ dt {
  */
 hr {
   border: none;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #444;
   margin-bottom: 22px; }
 
 a {
@@ -2014,7 +2012,7 @@ img[height] {
  * #OBJECTS
  */
 .wrapper {
-  max-width: 1100px;
+  max-width: 1024px;
   margin: 0 auto;
   padding-right: 12px;
   padding-left: 12px; }
@@ -2022,14 +2020,6 @@ img[height] {
     .wrapper {
       padding-right: 24px;
       padding-left: 24px; } }
-
-/**
- * This is a bit of a magic number; a wrapper this wide will allow us to ‘hang’
- * one icon out of the rest of the page’s ‘grid’. It is used primarily on the
- * home page promo boxes.
- */
-.wrapper--wide {
-  max-width: 1276px; }
 
 /*------------------------------------*\
     #LAYOUT
@@ -2159,62 +2149,7 @@ img[height] {
   /* [1] */
   padding-bottom: 12px;
   /* [1] */
-  background-color: #eee;
-  padding-top: 12px;
-  /* [1] */
-  padding-bottom: 12px;
-  /* [1] */
   background-color: #eee; }
-  @media screen and (min-width: 45em) {
-    .page-head {
-      padding-top: 24px;
-      /* [2] */
-      padding-bottom: 24px;
-      /* [2] */ } }
-
-/*------------------------------------*\
-    #BANDS
-\*------------------------------------*/
-.band {
-  padding-top: 24px;
-  padding-bottom: 24px; }
-  @media screen and (min-width: 64em) {
-    .band {
-      padding-top: 48px;
-      padding-bottom: 48px; } }
-
-.band--large {
-  padding: 48px; }
-
-.band--highlight {
-  background-color: #fff; }
-
-.band--tint {
-  background-color: #f2f2f2; }
-
-.promo {
-  padding-bottom: 0; }
-  @media screen and (min-width: 64em) {
-    .promo {
-      padding-bottom: 24px; } }
-
-.promo__links {
-  text-align: center; }
-  @media screen and (min-width: 45em) {
-    .promo__links {
-      word-spacing: 1.5em; }
-      .promo__links > .btn {
-        word-spacing: normal; } }
-
-.promo__icon {
-  color: #ddd;
-  font-size: 58px;
-  width: 58px;
-  margin-top: -10px; }
-
-.page-foot {
-  margin: 48px 0;
-  text-align: center; }
 
 /*------------------------------------*\
     #SITE-NAV
@@ -2231,7 +2166,12 @@ img[height] {
 
 .site-nav__home {
   display: block;
-  float: left; }
+  float: left;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 24px; }
+  .site-nav__home:hover, .site-nav__home:active, .site-nav__home:focus {
+    text-decoration: none; }
 
 .site-nav__list {
   margin: 0;
@@ -2250,7 +2190,7 @@ img[height] {
   display: block;
   padding-right: 12px;
   padding-left: 12px;
-  line-height: 64px;
+  line-height: 24px;
   color: #444; }
   .site-nav__link:hover, .site-nav__link:active, .site-nav__link:focus {
     text-decoration: none;
@@ -2258,6 +2198,10 @@ img[height] {
 
 .site-nav__link--active {
   color: #12ac3e; }
+
+.page-foot {
+  margin: 48px 0;
+  text-align: center; }
 
 .btn {
   font-weight: 600;
@@ -2276,171 +2220,6 @@ img[height] {
   .btn--secondary:hover, .btn--secondary:active, .btn--secondary:focus {
     background: none;
     color: #0d7e2d; }
-
-.box {
-  border-radius: 3px; }
-
-.box--highlight {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd; }
-
-.box--tint {
-  background-color: #f2f2f2; }
-
-.slider {
-  width: 100%;
-  margin-top: -79px;
-  position: relative; }
-
-.slider__list {
-  margin: 0;
-  height: 355px;
-  list-style: none;
-  position: relative;
-  overflow: hidden; }
-
-.slider__item {
-  height: 355px;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s; }
-
-.slider__item--current {
-  opacity: 1; }
-
-.slider__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -ms-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-
-.slider .limiter {
-  position: relative; }
-
-.slider__content {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 24px;
-  width: 400px;
-  font-size: 14px;
-  line-height: 1.5em; }
-  .slider__content p:last-child {
-    margin-bottom: 0; }
-
-.slider__direction_nav_prev, .slider__direction_nav_next {
-  position: absolute;
-  top: 45%;
-  font-size: 40px;
-  color: #12ac3e;
-  cursor: pointer;
-  opacity: .5;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-  -moz-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-  -ms-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-  -o-text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-  text-shadow: 1px 1px rgba(255, 255, 255, 0.5); }
-  .slider__direction_nav_prev:hover, .slider__direction_nav_next:hover {
-    opacity: 1; }
-
-.slider__direction_nav_prev {
-  left: 10px; }
-
-.slider__direction_nav_next {
-  right: 10px; }
-
-@media screen and (max-width: 44.9375em) {
-  .slider__content {
-    width: 100%;
-    right: 0;
-    bottom: 0;
-    font-size: 12px;
-    line-height: 1.5em; }
-    .slider__content h2 {
-      font-size: 16px;
-      line-height: 1.3em; } }
-.mobile-nav li {
-  display: block;
-  width: 100%; }
-.mobile-nav a {
-  color: white;
-  font-size: 16px;
-  line-height: 2em;
-  font-weight: 300;
-  display: block;
-  padding: 0 12px;
-  background-color: #12ac3e;
-  border-left: 10px solid #12ac3e; }
-  .mobile-nav a:hover {
-    text-decoration: none; }
-  .mobile-nav a:active {
-    background-color: white;
-    color: #12ac3e; }
-  .mobile-nav a.active {
-    border-left-color: #12ac3e; }
-.mobile-nav .dropdown__toggle {
-  position: relative; }
-.mobile-nav .dropdown__icon {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  margin-top: -8px; }
-.mobile-nav ul > li > a {
-  display: block;
-  background-color: #0d7e2d;
-  border-left-color: #0d7e2d; }
-  .mobile-nav ul > li > a.active {
-    border-left-color: #08501d; }
-
-.mobile-nav-toggle {
-  font-size: 12px;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1000; }
-
-@media screen and (min-width: 45em) {
-  .mobile-nav-toggle {
-    display: none; }
-
-  .mobile-nav-container {
-    display: none !important; } }
-.mg__fish {
-  display: inline-block;
-  margin-left: 3px;
-  vertical-align: middle;
-  line-height: 20px;
-  height: 20px;
-  opacity: .7;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s; }
-  .mg__fish:hover {
-    opacity: 1; }
 
 /**
  * #TRUMPS

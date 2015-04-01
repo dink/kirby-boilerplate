@@ -1,6 +1,6 @@
 
 .wrapper {
-    max-width: 1100px;
+    max-width: 1024px;
     margin: 0 auto;
     padding-right: $spacing-unit--small;
     padding-left:  $spacing-unit--small;
@@ -10,13 +10,4 @@
         padding-left:  $spacing-unit;
     }
 
-}
-
-/**
- * This is a bit of a magic number; a wrapper this wide will allow us to ‘hang’
- * one icon out of the rest of the page’s ‘grid’. It is used primarily on the
- * home page promo boxes.
- */
-.wrapper--wide {
-    max-width: 1276px;
 }

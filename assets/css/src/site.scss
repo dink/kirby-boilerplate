@@ -34,7 +34,6 @@
 @import "settings.colors";
 @import "../../../bower_components/inuit-responsive-settings/settings.responsive";
 
-$inuit-use-fractions:   false;
 
 /**
  * #FONTAWESOME
@@ -53,6 +52,8 @@ $fa-font-path:        "../fonts";
 @import "../../../bower_components/inuit-functions/tools.functions";
 @import "../../../bower_components/inuit-mixins/tools.mixins";
 @import "tools.mixins";
+
+$inuit-use-fractions:   false;
 @import "../../../bower_components/inuit-tools-widths/tools.widths";
 @import "../../../bower_components/inuit-responsive-tools/tools.responsive";
 @import "tools.aliases";
@@ -80,9 +81,7 @@ $fa-font-path:        "../fonts";
 @import "base.links";
 @import "../../../bower_components/inuit-paragraphs/base.paragraphs";
 @import "../../../bower_components/inuit-lists/base.lists";
-// @import "base.lists";
 @import "../../../bower_components/inuit-images/base.images";
-// @import "base.misc";
 
 
 
@@ -113,11 +112,6 @@ $inuit-enable-btn--full:    true;
 // @import "../../../bower_components/inuit-tabs/objects.tabs";
 // @import "../../../bower_components/inuit-pack/objects.pack";
 
-// @import "../../../bower_components/mg-toggle/objects.toggle";
-// @import "../../../bower_components/mg-nav/objects.nav";
-// @import "../../../bower_components/mg-dropdown/objects.dropdown";
-// @import "../../../bower_components/mg-tooltip/objects.tooltip";
-
 
 /**
  * #COMPONENTS
@@ -125,15 +119,9 @@ $inuit-enable-btn--full:    true;
 
 @import "components.browsehappy.scss";
 @import "components.page-head";
-@import "components.bands";
-@import "components.promo";
-@import "components.page-foot";
 @import "components.site-nav";
+@import "components.page-foot";
 @import "components.buttons";
-@import "components.boxes";
-@import "components.carousel";
-@import "components.mobile-nav";
-@import "components.mgfish";
 
 
 /**
